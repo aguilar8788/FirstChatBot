@@ -32,13 +32,15 @@ function sendGenericMessage(sender) {
                 "template_type": "generic",
                 "elements": [{
                     "title": "Computer Issues",
-                    "subtitle": "What issue are you having?",
+                    "subtitle": "Element #1 of an hscroll",
+                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
-                        "type": "No internet connection",
-                        "title": "No internet"
+                        "type": "web_url",
+                        "url": "https://www.messenger.com",
+                        "title": "web url"
                     }, {
-                        "type": "Computer will not turn on",
-                        "title": "Will not turn on",
+                        "type": "postback",
+                        "title": "Postback",
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
