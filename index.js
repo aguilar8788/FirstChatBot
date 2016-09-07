@@ -31,16 +31,14 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "title": "Computer Issues",
+                    "subtitle": "What issue are you having?",
                     "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
+                        "type": "No internet connection",
+                        "title": "No internet"
                     }, {
-                        "type": "postback",
-                        "title": "Postback",
+                        "type": "Computer will not turn on",
+                        "title": "Will not turn on",
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
@@ -73,21 +71,21 @@ function sendGenericMessage(sender) {
     })
 }
 
-function receivedPostback(event) {
-  var senderID = event.sender.id;
-  var recipientID = event.recipient.id;
-  var timeOfPostback = event.timestamp;
-
-  //The 'payload' param is a developer-defined field which is set in a postback
-  //button for Structured Messages.
-  var payload = event.postback.payload;
-
-  console.log("Received postback for user %d and page %d with payload '%s' " + "at %d" , senderID, recipientID, payload, timeOfPostback);
-
-  //When a postback is called, we'll send a message back to the sender to
-  //let them know it was successful
-  sendTextMessage(senderID, "Postback called");
-}
+// function receivedPostback(event) {
+//   var senderID = event.sender.id;
+//   var recipientID = event.recipient.id;
+//   var timeOfPostback = event.timestamp;
+//
+//   //The 'payload' param is a developer-defined field which is set in a postback
+//   //button for Structured Messages.
+//   var payload = event.postback.payload;
+//
+//   console.log("Received postback for user %d and page %d with payload '%s' " + "at %d" , senderID, recipientID, payload, timeOfPostback);
+//
+//   //When a postback is called, we'll send a message back to the sender to
+//   //let them know it was successful
+//   sendTextMessage(senderID, "Postback called");
+// }
 
 app.set('port', (process.env.PORT || 5000))
 
