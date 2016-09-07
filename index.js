@@ -29,17 +29,18 @@ function sendGenericMessage(sender) {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "Generic",
+                "template_type": "generic",
                 "elements": [{
-                    "title": "Common Computer Issues",
-                    "subtitle": "What issue are you having?",
+                    "title": "First card",
+                    "subtitle": "Element #1 of an hscroll",
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
-                        "type": "Wont Turn On",
-                        "title": "Wont Turn On"
+                        "type": "web_url",
+                        "url": "https://www.messenger.com",
+                        "title": "web url"
                     }, {
-                        "type": "No internet connection",
-                        "title": "No internet connection",
+                        "type": "postback",
+                        "title": "Postback",
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
