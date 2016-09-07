@@ -29,7 +29,7 @@ function sendGenericMessage(sender) {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "Computer",
+                "template_type": "Generic",
                 "elements": [{
                     "title": "Common Computer Issues",
                     "subtitle": "What issue are you having?",
