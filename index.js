@@ -36,11 +36,12 @@ function sendGenericMessage(sender) {
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
                         "type": "postback",
-                        "title": "Network Issue"
+                        "title": "Network Issue",
+                        "payload": "Payload for first element in a generic bubble"
                     }, {
                         "type": "postback",
                         "title": "Won't Turn On",
-                        "payload": "Payload for first element in a generic bubble",
+                        "payload": "Payload for first element in a generic bubble"
                     }],
                 }, {
                     "title": "Second card",
