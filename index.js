@@ -35,11 +35,11 @@ function sendGenericMessage(sender) {
                     "subtitle": "Element #1 of an hscroll",
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
-                        "type": "web_url",
+                        "type": "Network Issue",
                         "url": "https://www.messenger.com",
                         "title": "web url"
                     }, {
-                        "type": "postback",
+                        "type": "Wont Turn On",
                         "title": "Postback",
                         "payload": "Payload for first element in a generic bubble",
                     }],
