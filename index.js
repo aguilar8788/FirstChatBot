@@ -132,8 +132,6 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       sendTextMessage(sender, "Postback received: " + text.substring(0, 200), token);
       continue;
-    }else if(messagingEvent.postback) {
-      receivedPostback(messagingEvent);
     }
   }
   res.sendStatus(200);
