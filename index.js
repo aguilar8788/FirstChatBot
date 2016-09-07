@@ -73,6 +73,22 @@ function sendGenericMessage(sender) {
     })
 }
 
+function receivedPostback(event) {
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfPostback = event.timestamp;
+
+  //The 'payload' param is a developer-defined field which is set in a postback
+  //button for Structured Messages.
+  var payload = event.postback.payload;
+
+  console.log("Received postback for user %d and page %d with payload '%s' " + "at %d" , senderID, recipientID, payload, timeOfPostback);
+
+  //When a postback is called, we'll send a message back to the sender to
+  //let them know it was successful
+  sendTextMessage(senderID, "Postback called");
+}
+
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -106,7 +122,6 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
-
       if (text == 'Generic') {
         sendGenericMessage(sender);
         continue;
@@ -117,6 +132,8 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       sendTextMessage(sender, "Postback received: " + text.substring(0, 200), token);
       continue;
+    }else if(messagingEvent.postback) {
+      receivedPostback(messagingEvent);
     }
   }
   res.sendStatus(200);
