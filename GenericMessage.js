@@ -1,4 +1,6 @@
 'use strict'
+require('dotenv').load();
+const request = require('request')
 module.exports = {
    sendTextMessage: function(sender, text) {
     let messageData = { text:text };
