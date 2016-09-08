@@ -184,6 +184,12 @@ function confirmFixed(sender) {
     })
 }
 
+function noPower() {
+  setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
+  setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
+  setTimeout(function() {confirmation(sender);}, 9000);
+}
+
 
 // function receivedPostback(event) {
 //   var senderID = event.sender.id;
@@ -245,14 +251,12 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else if (response == "noBoot") {
-        setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-        setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
-        setTimeout(function() {confirmation(sender);}, 9000);
-
+        noPower();
       }
       if(event.postback.payload == "yes") {
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
       }
+
     }
   }
   res.sendStatus(200);
