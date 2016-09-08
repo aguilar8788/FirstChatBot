@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-var troubleshooting = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
+var computerWillNotBoot = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
 
 function sendTextMessage(sender, text) {
   let messageData = { text:text };
@@ -250,25 +250,38 @@ app.post('/webhook/', function (req, res) {
 
 
       let text = JSON.stringify(event.postback);
-      var response = event.postback.payload;
-      if(response == "Computer"){
-        sendComputerMessage(sender);
-        continue;
+      const response = event.postback.payload;
+      var response2 = event.postback.payload;
+
+      switch(response) {
+        case "Computer": computerTroubleshoot()
+        break;
+        default: sendTextMessage(sender, "This is not an option")
       }
-      else if (response == "noBoot") {
+
+
+
+      function computerTroubleshoot() {
+        sendComputerMessage(sender);
+
+
+      }
+
+
+      if (response2 == "noBoot") {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-        setTimeout(function() {sendTextMessage(sender, troubleshooting[0]);}, 6000);
+        setTimeout(function() {sendTextMessage(sender, computerWillNotBoot[0]);}, 6000);
 
         setTimeout(function() {confirmation(sender);}, 9000);
 
         continue;
       }
       else if(userChoice == "yes") {
-        troubleshooting.shift()
-        if(troubleshooting.length > 0){
+        computerWillNotBoot.shift()
+        if(computerWillNotBoot.length > 0){
           setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
           setTimeout(function() {
-            sendTextMessage(sender, troubleshooting[0])
+            sendTextMessage(sender, computerWillNotBoot[0])
             }, 6000);
           setTimeout(function() {confirmation(sender);}, 9000);
           continue;
