@@ -253,7 +253,7 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
-        computer.send();
+        computer.send(sender);
         continue;
       }
       else if (response == "noBoot") {
