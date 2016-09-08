@@ -36,23 +36,18 @@ function sendGenericMessage(sender) {
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
                         "type": "postback",
-                        "title": "Network Issue",
+                        "title": "Computer",
                         "payload": "Payload for first element in a generic bubble"
                     }, {
                         "type": "postback",
-                        "title": "Won't Turn On",
+                        "title": "Phone",
+                        "payload": "Payload for first element in a generic bubble"
+                    }, {
+                        "type": "postback",
+                        "title": "Internet",
                         "payload": "Payload for first element in a generic bubble"
                     }],
-                }, {
-                    "title": "Second card",
-                    "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
-                    }],
-                }]
+                }
             }
         }
     }
