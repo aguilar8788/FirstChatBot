@@ -131,7 +131,7 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
-      sendGenericMessage(sender);
+      setTimeout(function() {sendGenericMessage(sender); }, 1000);
       continue;
     }
     if (event.postback) {
