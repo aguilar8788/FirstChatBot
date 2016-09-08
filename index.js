@@ -276,7 +276,7 @@ app.post('/webhook/', function (req, res) {
             }, 6000);
           setTimeout(function() {confirmation(sender);}, 9000);
           continue;
-        }else {
+        }else if (troubleshooting == []){
           confirmFixed(sender);
         }
       }else if(userChoice == "no") {
