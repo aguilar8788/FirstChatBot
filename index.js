@@ -235,7 +235,7 @@ app.post('/webhook/', function (req, res) {
     if(event.message && event.message.text) {
       let text = event.message.text;
       setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?" + text.substring(0, 200));}, 1000);
-      setTimeout(function() {sendGenericMessage(sender); }, 1000);
+      setTimeout(function() {sendGenericMessage(sender); }, 2000);
       continue;
     }else if (event.postback) {
       let text = JSON.stringify(event.postback);
@@ -248,7 +248,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
         setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
         setTimeout(function() {confirmation(sender);}, 9000);
-        continue;
+        
         if(event.postback.payload == "Yes") {
           sendTextMessage(sender, "Hell yeah this works!!");
         }
