@@ -273,8 +273,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {confirmation(sender);}, 9000);
           continue;
         }else {
-          // confirmFixed(sender);
-          console.log("working")
+          confirmFixed(sender);
         }
       }else if(userChoice == "no") {
         setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
