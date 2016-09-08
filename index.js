@@ -241,6 +241,10 @@ app.post('/webhook/', function (req, res) {
       setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?" + text.substring(0, 200));}, 1000);
       setTimeout(function() {sendGenericMessage(sender); }, 2000);
       continue;
+
+      if(event.message.text == "yes") {
+        sendTexMessage(sender, "work man");
+      }
     }else if (event.postback) {
       var userChoice = event.postback.payload;
       let text = JSON.stringify(event.postback);
