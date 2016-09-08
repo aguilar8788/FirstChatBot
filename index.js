@@ -258,10 +258,11 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, troubleshooting[0])}, 6000);
 
         setTimeout(function() {confirmation(sender);}, 9000);
-        setTimeout(function() { troubleshooting.shift();}, 12000);
+
         continue;
       }
       else if(userChoice == "yes") {
+        troubleshooting.shift();
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
         setTimeout(function() {sendTextMessage(sender, troubleshooting[0])}, 6000);
         setTimeout(function() {confirmation(sender);}, 9000);
