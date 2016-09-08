@@ -114,14 +114,14 @@ app.post('/webhook/', function (req, res) {
     let event = req.body.entry[0].messaging[i];
     let sender = event.sender.id;
     if(event.message && event.message.text) {
-      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
-      setTimeout(function() {sendGenericMessage(sender); }, 1000);
-      continue;
       let text = event.message.text;
       if (text == 'Computer') {
         sendGenericMessage(sender);
         continue;
       }
+      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
+      setTimeout(function() {sendGenericMessage(sender); }, 1000);
+      continue;
     }
     if (event.postback) {
       let text = JSON.stringify(event.postback);
