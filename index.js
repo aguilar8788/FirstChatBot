@@ -172,7 +172,7 @@ app.post('/webhook/', function (req, res) {
         if(computerWillNotBoot.length > 0){
           setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
           setTimeout(function() {
-            sendTextMessage(sender, computerWillNotBoot[0])
+            message.sendTextMessage(sender, computerWillNotBoot[0])
             }, 6000);
           setTimeout(function() {confirmation(sender);}, 9000);
           continue;
