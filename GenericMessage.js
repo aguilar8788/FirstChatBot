@@ -1,6 +1,6 @@
 'use strict'
 module.exporst = {
-   "sendTextMessage": function(sender, text) {
+   sendTextMessage: function(sender, text) {
     let messageData = { text:text };
     request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
