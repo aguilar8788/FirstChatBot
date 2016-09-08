@@ -234,7 +234,7 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
-      sendTextMessage(sender, "Hello, what can I troubleshoot for you today?" + text.substring(0, 200));
+      setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?" + text.substring(0, 200));}, 1000);
       setTimeout(function() {sendGenericMessage(sender); }, 1000);
       continue;
     }else if (event.postback) {
@@ -245,9 +245,9 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else if (response == "noBoot") {
-        setTimeout(function() {sendTextMessage(sender, "I'm sorry you are having this issue. Let's try to get your computer up and running again.");}, 1000);
-        setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power or if it is a laptop insure your battery is charged.")}, 1000);
-        setTimeout(function() {confirmation(sender);}, 1000);
+        setTimeout(function() {sendTextMessage(sender, "I'm sorry you are having this issue. Let's try to get your computer up and running again.");}, 3000);
+        setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power or if it is a laptop insure your battery is charged.")}, 6000);
+        setTimeout(function() {confirmation(sender);}, 3000);
         continue;
       }
     }
