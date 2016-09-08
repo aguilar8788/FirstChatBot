@@ -185,9 +185,7 @@ function confirmFixed(sender) {
 }
 
 function noPower() {
-  setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-  setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
-  setTimeout(function() {confirmation(sender);}, 9000);
+
 }
 
 
@@ -244,6 +242,7 @@ app.post('/webhook/', function (req, res) {
       setTimeout(function() {sendGenericMessage(sender); }, 2000);
       continue;
     }else if (event.postback) {
+      var userChoice = event.postback.payload;
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
@@ -251,10 +250,17 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else if (response == "noBoot") {
-        noPower();
+        setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
+        setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
+        setTimeout(function() {confirmation(sender);}, 9000);
+        continue;
       }
-      if(event.postback.payload == "yes") {
+      if(userChoice == "yes") {
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
+        continue;
+      }else if(userChoice == "no") {
+        setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
+        continue;
       }
 
     }
