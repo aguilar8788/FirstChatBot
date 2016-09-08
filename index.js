@@ -266,7 +266,7 @@ app.post('/webhook/', function (req, res) {
 
 
     }
-    sendTextMessage(sender, "test");
+    
   }
   res.sendStatus(200);
 })
