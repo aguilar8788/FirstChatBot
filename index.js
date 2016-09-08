@@ -123,7 +123,7 @@ app.post('/webhook/', function (req, res) {
       setTimeout(function() {sendGenericMessage(sender); }, 1000);
       continue;
     }
-    if (event.postback) {
+    if (event.postback == "Computer") {
       let text = JSON.stringify(event.postback);
       sendTextMessage(sender, "Postback received: " + text.substring(0, 200), token);
       continue;
