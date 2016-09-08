@@ -109,6 +109,9 @@ app.listen(app.get('port'), function() {
 })
 
 app.post('/webhook/', function (req, res) {
+  sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
+  setTimeout(function() {sendGenericMessage(sender); }, 1000);
+  continue;
   let messaging_events = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_events.length; i++) {
     let event = req.body.entry[0].messaging[i];
@@ -119,9 +122,6 @@ app.post('/webhook/', function (req, res) {
         sendGenericMessage(sender);
         continue;
       }
-      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
-      setTimeout(function() {sendGenericMessage(sender); }, 1000);
-      continue;
     }
     if (event.postback) {
       let text = JSON.stringify(event.postback);
