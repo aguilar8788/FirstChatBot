@@ -258,7 +258,7 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
 
-      if(userChoice == "yes" && counter == 0) {
+      if(userChoice == "yes" && counter === 0) {
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
         setTimeout(function() {sendTextMessage(sender, "Now lets try holding down the power button for 30 seconds, then let off the power button, and finally try turning the computer on again.");}, 4000);
         setTimeout(function() {confirmation(sender);}, 6000);
@@ -269,7 +269,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
-      }else if(userChoice == "yes" && counter == 1) {
+      }else if(userChoice == "yes" && counter === 1) {
         setTimeout(function() {sendTextMessage(sender, "Okay moving on");}, 2000);
       }
 
