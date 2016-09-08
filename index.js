@@ -256,8 +256,9 @@ app.post('/webhook/', function (req, res) {
       else if (response == "noBoot") {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
         setTimeout(function() {sendTextMessage(sender, troubleshooting[0])}, 6000);
-        troubleshooting.shift();
+
         setTimeout(function() {confirmation(sender);}, 9000);
+        troubleshooting.shift();
         continue;
       }
       else if(userChoice == "yes") {
