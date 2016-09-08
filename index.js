@@ -119,7 +119,7 @@ function confirmation(sender) {
                     "buttons": [{
                         "type": "postback",
                         "title": "Yes",
-                        "payload": {answer:"yes", issue: "computer"}
+                        "payload": "yes"
                     }, {
                         "type": "postback",
                         "title": "No",
