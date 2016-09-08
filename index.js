@@ -31,7 +31,7 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": " ",
+                    "title": "Please Select From The Following",
                     "subtitle": "Devices I support",
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
