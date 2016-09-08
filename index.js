@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+var troubleshooting = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
+
 function sendTextMessage(sender, text) {
   let messageData = { text:text };
   request({
@@ -246,7 +248,7 @@ app.post('/webhook/', function (req, res) {
     }else if (event.postback) {
       var userChoice = event.postback.payload;
 
-      var troubleshooting = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
+
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
