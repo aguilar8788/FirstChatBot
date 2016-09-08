@@ -256,18 +256,14 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
       }
-      console.log(response);
-      if(userChoice == "yes") {
-        setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
-        continue;
-      }else if(userChoice == "no") {
-        setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
-        setTimeout(function() {confirmation(sender);}, 9000);
-        continue;
-      }
 
-
-
+    }else if(event.postback.payload == "yes") {
+      setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
+      continue;
+    }else if(event.postback.payload == "no") {
+      setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
+      setTimeout(function() {confirmation(sender);}, 9000);
+      continue;
     }
 
   }
