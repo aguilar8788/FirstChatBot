@@ -250,7 +250,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {confirmation(sender);}, 9000);
 
       }
-      if(event.postback.payload == "Yes") {
+      if(event.postback.payload == "yes") {
         sendTextMessage(sender, "Hell yeah this works!!");
       }
     }
