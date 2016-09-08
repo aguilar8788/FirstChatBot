@@ -249,6 +249,9 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
+        if(event.postback.payload == "Yes") {
+          sendTextMessage(sender, "Hell yeah this works!!");
+        }
       }
     }
   }
