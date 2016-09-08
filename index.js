@@ -244,6 +244,8 @@ app.post('/webhook/', function (req, res) {
 
     }else if (event.postback) {
       var userChoice = event.postback.payload;
+      counter = 1;
+      var troubleshooting = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Please hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
@@ -252,12 +254,14 @@ app.post('/webhook/', function (req, res) {
       }
       else if (response == "noBoot") {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-        setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
+        setTimeout(function() {sendTextMessage(sender, troubleshooting[0])}, 6000);
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
       }
       else if(userChoice == "yes") {
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
+        setTimeout(function() {sendTextMessage(sender, troubleshooting[counter])}, 6000);
+
         continue;
       }else if(userChoice == "no") {
         setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
