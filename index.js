@@ -146,7 +146,7 @@ function confirmation(sender) {
     })
 }
 
-function confirmationFixed(sender) {
+function confirmFixed(sender) {
     let messageData = {
         "attachment": {
             "type": "template",
@@ -247,7 +247,7 @@ app.post('/webhook/', function (req, res) {
       else if (response == "noBoot") {
         sendTextMessage(sender, "I'm sorry you are having this issue. Let's try to get your computer up and running again.");
         setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power or if it is a laptop insure your battery is charged.")}, 1000);
-        confirmation(sender);
+        setTimeout(function() {confirmation(sender);}, 1000);
         continue;
       }
     }
