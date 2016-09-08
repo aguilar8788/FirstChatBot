@@ -31,7 +31,9 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "subtitle": "Here is a list of hardware I support"
+                    "title": " ",
+                    "subtitle": "Devices I support",
+                    "image_url": " ",
                     "buttons": [{
                         "type": "postback",
                         "title": "Computer",
