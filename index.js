@@ -260,8 +260,10 @@ app.post('/webhook/', function (req, res) {
         continue;
       }else if(userChoice == "no") {
         setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
+        setTimeout(function() {confirmation(sender);}, 9000);
         continue;
       }
+      sendTextMessage(sender, "test");
 
     }
   }
