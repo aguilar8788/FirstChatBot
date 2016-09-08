@@ -1,5 +1,5 @@
 'use strict'
-var computer = require("/computerTroubleshooting");
+var computer = require("./computerTroubleshooting");
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
