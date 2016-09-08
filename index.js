@@ -251,7 +251,7 @@ app.post('/webhook/', function (req, res) {
 
       }
       if(event.postback.payload == "yes") {
-        sendTextMessage(sender, "Good, lets move on...");
+        setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
       }
     }
   }
