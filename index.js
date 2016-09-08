@@ -253,20 +253,21 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
         setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.")}, 6000);
         setTimeout(function() {confirmation(sender);}, 9000);
+        if(userChoice == "yes") {
+          setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
+          continue;
+        }else if(userChoice == "no") {
+          setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
+          setTimeout(function() {confirmation(sender);}, 9000);
+          continue;
+        }
         continue;
       }
-      if(userChoice == "yes") {
-        setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
-        continue;
-      }else if(userChoice == "no") {
-        setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
-        setTimeout(function() {confirmation(sender);}, 9000);
-        continue;
-      }
+
 
 
     }
-    
+
   }
   res.sendStatus(200);
 })
