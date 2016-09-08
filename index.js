@@ -95,11 +95,11 @@ function sendComputerMessage(sender) {
                     "title": "What computer issue are you experiencing?",
                     "buttons": [{
                         "type": "postback",
-                        "title": "Computer will not turn on",
+                        "title": "Won't Turn On",
                         "payload": "noBoot"
                     }, {
                         "type": "postback",
-                        "title": "Computer will not connect to internet",
+                        "title": "No Internet",
                         "payload": "noNetwork"
                     }, {
                         "type": "postback",
