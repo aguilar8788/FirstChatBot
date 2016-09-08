@@ -187,7 +187,7 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else if (response == "noBoot") {
-        sendComputerMessage(sender);
+        sendTextMessage(sender, "I'm sorry you are having this issue. Let's try to get your computer up and running again.");
         continue;
       }
     }
