@@ -247,7 +247,7 @@ app.post('/webhook/', function (req, res) {
       else if (response == "noBoot") {
         setTimeout(function() {sendTextMessage(sender, "I'm sorry you are having this issue. Let's try to get your computer up and running again.");}, 3000);
         setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power or if it is a laptop insure your battery is charged.")}, 6000);
-        setTimeout(function() {confirmation(sender);}, 3000);
+        setTimeout(function() {confirmation(sender);}, 9000);
         continue;
       }
     }
