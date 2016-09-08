@@ -250,25 +250,12 @@ app.post('/webhook/', function (req, res) {
 
 
       let text = JSON.stringify(event.postback);
-      let response = event.postback.payload;
-      var response2 = event.postback.payload;
-
-      switch(response) {
-        case "Computer": computerTroubleshoot()
-        break;
-        default: sendTextMessage(sender, "This is not an option")
-      }
-
-
-
-      function computerTroubleshoot() {
+      var response = event.postback.payload;
+      if(response == "Computer"){
         sendComputerMessage(sender);
-
-
+        continue;
       }
-
-
-      if (response2 == "noBoot") {
+      else if (response == "noBoot") {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
         setTimeout(function() {sendTextMessage(sender, computerWillNotBoot[0]);}, 6000);
 
