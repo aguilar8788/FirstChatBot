@@ -243,6 +243,7 @@ app.post('/webhook/', function (req, res) {
       let text = event.message.text;
       setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?");}, 1000);
       setTimeout(function() {sendGenericMessage(sender); }, 2000);
+      console.log(computer)
       continue;
 
     }else if (event.postback) {
