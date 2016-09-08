@@ -265,15 +265,15 @@ app.post('/webhook/', function (req, res) {
       }
       else if(userChoice == "yes") {
         troubleshooting.shift()
-        if(troubleshooting != []){
+        if(troubleshooting.length > 0){
           setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
           setTimeout(function() {
             sendTextMessage(sender, troubleshooting[0])
             }, 6000);
           setTimeout(function() {confirmation(sender);}, 9000);
           continue;
-        }else if (troubleshooting == []){
-          confirmFixed(sender);
+        }else {
+          // confirmFixed(sender);
           console.log("working")
         }
       }else if(userChoice == "no") {
