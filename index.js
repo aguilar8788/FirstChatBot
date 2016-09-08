@@ -243,7 +243,7 @@ app.post('/webhook/', function (req, res) {
       let text = event.message.text;
       setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?");}, 1000);
       setTimeout(function() {sendGenericMessage(sender); }, 2000);
-      console.log(computer)
+      console.log(computer.sendComputerMessage
       continue;
 
     }else if (event.postback) {
@@ -253,7 +253,7 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
-        computer.sendComputerMessage(sender);
+        computer.sendComputerMessage;
         continue;
       }
       else if (response == "noBoot") {
