@@ -232,6 +232,7 @@ app.listen(app.get('port'), function() {
 })
 
 app.post('/webhook/', function (req, res) {
+    var counter = 1;
   let messaging_events = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_events.length; i++) {
     let event = req.body.entry[0].messaging[i];
@@ -244,7 +245,7 @@ app.post('/webhook/', function (req, res) {
 
     }else if (event.postback) {
       var userChoice = event.postback.payload;
-      counter = 1;
+
       var troubleshooting = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Please hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
