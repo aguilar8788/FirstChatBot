@@ -6,7 +6,7 @@ const request = require('request')
 const app = express()
 
 function sendTextMessage(sender, text) {
-  let messageData = { text:"Hello, what can I troubleshoot for you today?" };
+  let messageData = { text:text };
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {access_token:token},
@@ -25,7 +25,7 @@ function sendTextMessage(sender, text) {
 }
 
 function sendTextMessage2(sender, text) {
-  let messageData = { text:"Test" };
+  let messageData = { text:text };
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {access_token:token},
@@ -176,7 +176,7 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
-      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
+      sendTextMessage(sender, "Hello, what can I troubleshoot for you today?" + text.substring(0, 200));
       setTimeout(function() {sendGenericMessage(sender); }, 1000);
       continue;
     }else if (event.postback) {
