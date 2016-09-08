@@ -265,6 +265,7 @@ app.post('/webhook/', function (req, res) {
 
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
         setTimeout(function() {
+          console.log(counter)
           sendTextMessage(sender, troubleshooting[counter])
           counter++;
           console.log(counter)
