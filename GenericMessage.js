@@ -6,7 +6,7 @@ module.exports = {
     let messageData = { text:text };
     request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
-      qs: {access_token:token},
+      qs: {access_token:process.env.TOKEN},
       method: 'POST',
       json: {
         recipient: {id:sender},
