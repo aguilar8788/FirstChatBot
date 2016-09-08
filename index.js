@@ -250,7 +250,7 @@ app.post('/webhook/', function (req, res) {
 
 
       let text = JSON.stringify(event.postback);
-      const response = event.postback.payload;
+      let response = event.postback.payload;
       var response2 = event.postback.payload;
 
       switch(response) {
