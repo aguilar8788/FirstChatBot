@@ -263,6 +263,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, "Now lets try holding down the power button for 30 seconds, then let off the power button, and finally try turning the computer on again.");}, 4000);
         setTimeout(function() {confirmation(sender);}, 6000);
         counter++;
+        console.log(counter);
         continue;
       }else if(userChoice == "no") {
         setTimeout(function() {sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
