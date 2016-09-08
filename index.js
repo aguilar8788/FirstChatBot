@@ -119,7 +119,7 @@ function confirmation(sender) {
                     "buttons": [{
                         "type": "postback",
                         "title": "Yes",
-                        "payload": "yes"
+                        "payload": {answer:"yes", issue: "computer"}
                     }, {
                         "type": "postback",
                         "title": "No",
@@ -256,7 +256,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
       }
-
+      console.log(response);
       if(userChoice == "yes") {
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
         continue;
