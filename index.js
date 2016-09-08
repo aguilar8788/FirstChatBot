@@ -54,7 +54,7 @@ function sendGenericMessage(sender) {
                     "buttons": [{
                         "type": "postback",
                         "title": "Computer",
-                        "payload": "Payload for first element in a generic bubble"
+                        "payload": "Computer"
                     }, {
                         "type": "postback",
                         "title": "Phone",
@@ -140,7 +140,7 @@ app.post('/webhook/', function (req, res) {
     }else if (event.postback) {
       let text = JSON.stringify(event.postback);
       console.log(text);
-      if(event.postback){
+      if(text.payload == "Computer"){
         sendGenericMessage(sender);
         continue;
       }
