@@ -267,6 +267,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {
           sendTextMessage(sender, troubleshooting[counter])
           counter++;
+          console.log(counter)
           }, 6000);
         setTimeout(function() {confirmation(sender);}, 9000);
 
