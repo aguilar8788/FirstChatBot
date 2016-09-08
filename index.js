@@ -24,25 +24,6 @@ function sendTextMessage(sender, text) {
   })
 }
 
-function sendTextMessage2(sender, text) {
-  let messageData = { text:text };
-  request({
-    url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token:token},
-    method: 'POST',
-    json: {
-      recipient: {id:sender},
-      message: messageData,
-    }
-  }, function(error, response, body) {
-    if(error) {
-      console.log('Error sending messages: ', error);
-    }else if(response.body.error) {
-      console.log('Error: ', response.body.error);
-    }
-  })
-}
-
 function sendGenericMessage(sender) {
     let messageData = {
         "attachment": {
@@ -127,6 +108,44 @@ function sendComputerMessage(sender) {
     })
 }
 
+function confirmation(sender) {
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "What computer issue are you experiencing?",
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "Yes",
+                        "payload": "yes"
+                    }, {
+                        "type": "postback",
+                        "title": "No",
+                        "payload": "no"
+                    }],
+                }]
+            }
+        }
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+}
+
 // function receivedPostback(event) {
 //   var senderID = event.sender.id;
 //   var recipientID = event.recipient.id;
@@ -188,6 +207,8 @@ app.post('/webhook/', function (req, res) {
       }
       else if (response == "noBoot") {
         sendTextMessage(sender, "I'm sorry you are having this issue. Let's try to get your computer up and running again.");
+        setTimeout(function() {sendTextMessage(sender, "First lets try the basics. Please insure that your computer has power or if it is a laptop insure your battery is charged.")})
+        confirmation(sender);
         continue;
       }
     }
