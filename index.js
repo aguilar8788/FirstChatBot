@@ -241,7 +241,7 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
-      setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?" + text.substring(0, 200));}, 1000);
+      setTimeout(function() {sendTextMessage(sender, "Hello, what can I troubleshoot for you today?");}, 1000);
       setTimeout(function() {sendGenericMessage(sender); }, 2000);
       continue;
 
