@@ -1,5 +1,5 @@
 'use strict'
-module.exporst = {
+module.exports = {
    sendTextMessage: function(sender, text) {
     let messageData = { text:text };
     request({
