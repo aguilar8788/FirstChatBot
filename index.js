@@ -24,6 +24,25 @@ function sendTextMessage(sender, text) {
   })
 }
 
+function sendTextMessage2(sender, text) {
+  let messageData = { text:"Test" };
+  request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token:token},
+    method: 'POST',
+    json: {
+      recipient: {id:sender},
+      message: messageData,
+    }
+  }, function(error, response, body) {
+    if(error) {
+      console.log('Error sending messages: ', error);
+    }else if(response.body.error) {
+      console.log('Error: ', response.body.error);
+    }
+  })
+}
+
 function sendGenericMessage(sender) {
     let messageData = {
         "attachment": {
@@ -118,13 +137,11 @@ app.post('/webhook/', function (req, res) {
       sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
       setTimeout(function() {sendGenericMessage(sender); }, 1000);
       continue;
-      if (event.postback) {
-        let text = JSON.stringify(event.postback);
-        sendTextMessage(sender, "Postback received: " + text.substring(0, 200), token);
-        continue;
-      }
+    }else if (event.postback) {
+      let text = JSON.stringify(event.postback);
+      sendTextMessage2(sender, "Postback received: " + text.substring(0, 200), token);
+      continue;
     }
-
   }
   res.sendStatus(200);
 })
