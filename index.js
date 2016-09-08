@@ -33,7 +33,7 @@ function sendGenericMessage(sender) {
                 "elements": [{
                     "title": " ",
                     "subtitle": "Devices I support",
-                    "image_url": " ",
+                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
                         "type": "postback",
                         "title": "Computer",
