@@ -125,10 +125,8 @@ app.post('/webhook/', function (req, res) {
     }
     if (event.postback) {
       let text = JSON.stringify(event.postback);
-      if(text == "Computer"){
-        sendTextMessage(sender, "Postback received: " + text.substring(0, 200), token);
-        continue;
-      }
+      sendTextMessage(sender, "Postback received: " + text.substring(0, 200), token);
+      continue;
     }
   }
   res.sendStatus(200);
