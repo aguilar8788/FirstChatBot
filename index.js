@@ -139,7 +139,7 @@ app.post('/webhook/', function (req, res) {
       continue;
     }else if (event.postback) {
       let text = JSON.stringify(event.postback);
-      console.log(text["payload"]);
+      console.log(text.payload);
       if(text["payload"] == "Computer"){
         sendGenericMessage(sender);
         continue;
