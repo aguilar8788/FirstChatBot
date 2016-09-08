@@ -266,7 +266,7 @@ app.post('/webhook/', function (req, res) {
       else if(userChoice == "yes") {
         var counter = 1;
         troubleshooting.shift()
-        if(troubleshooting){
+        if(troubleshooting != []){
           setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
           setTimeout(function() {
             console.log(counter)
@@ -275,7 +275,6 @@ app.post('/webhook/', function (req, res) {
             console.log(counter)
             }, 6000);
           setTimeout(function() {confirmation(sender);}, 9000);
-
           continue;
         }else {
           confirmFixed(sender);
