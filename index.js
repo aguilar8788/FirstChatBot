@@ -1,5 +1,5 @@
 'use strict'
-
+var computer = require("/computerTroubleshooting");
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
@@ -252,7 +252,7 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
-        sendComputerMessage(sender);
+        computerTroubleshooting.sendComputerMessage(sender);
         continue;
       }
       else if (response == "noBoot") {
