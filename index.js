@@ -6,7 +6,7 @@ const request = require('request')
 const app = express()
 
 function sendTextMessage(sender, text) {
-  let messageData = { text:text };
+  let messageData = { text:"Hello, what can I troubleshoot for you today?" };
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {access_token:token},
