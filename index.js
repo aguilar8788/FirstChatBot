@@ -263,9 +263,10 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
       }
-      sendTextMessage(sender, "test");
+
 
     }
+    sendTextMessage(sender, "test");
   }
   res.sendStatus(200);
 })
