@@ -1,3 +1,4 @@
+'use strict'
 module.exports = {
   sendComputerMessage: function(sender) {
       let messageData = {
