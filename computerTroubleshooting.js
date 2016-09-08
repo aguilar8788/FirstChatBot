@@ -1,6 +1,6 @@
 'use strict'
 module.exports = {
-  sendComputerMessage: function(sender) {
+  send: function(sender) {
       let messageData = {
           "attachment": {
               "type": "template",
