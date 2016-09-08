@@ -255,7 +255,7 @@ app.post('/webhook/', function (req, res) {
       }
       else if (response == "noBoot") {
         setTimeout(function() {sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-        setTimeout(function() {sendTextMessage(sender, troubleshooting[0])}, 6000);
+        setTimeout(function() {sendTextMessage(sender, troubleshooting[0]) troubleshooting.shift();}, 6000);
 
         setTimeout(function() {confirmation(sender);}, 9000);
 
@@ -266,7 +266,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {sendTextMessage(sender, "Good, lets move on...");}, 2000);
         setTimeout(function() {
           console.log(counter)
-          sendTextMessage(sender, troubleshooting[counter])
+          sendTextMessage(sender, troubleshooting[0])
           counter++;
           console.log(counter)
           }, 6000);
