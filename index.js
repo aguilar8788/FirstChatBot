@@ -31,9 +31,7 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Computer Issues",
-                    "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "subtitle": "Here is a list of hardware I support"
                     "buttons": [{
                         "type": "postback",
                         "title": "Computer",
