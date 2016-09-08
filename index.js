@@ -113,11 +113,10 @@ app.post('/webhook/', function (req, res) {
   for (let i = 0; i < messaging_events.length; i++) {
     let event = req.body.entry[0].messaging[i];
     let sender = event.sender.id;
-    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
-    setTimeout(function() {sendGenericMessage(sender); }, 1000);
-    if(event.message && event.message.text) {
+    if(event.message && event.message.text == "hi") {
       let text = event.message.text;
-
+      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
+      setTimeout(function() {sendGenericMessage(sender); }, 1000);
       continue;
     } else if (event.postback) {
       let text = JSON.stringify(event.postback);
