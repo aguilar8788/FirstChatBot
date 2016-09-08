@@ -58,11 +58,53 @@ function sendGenericMessage(sender) {
                     }, {
                         "type": "postback",
                         "title": "Phone",
-                        "payload": "Payload for first element in a generic bubble"
+                        "payload": "Phone"
                     }, {
                         "type": "postback",
                         "title": "Internet",
-                        "payload": "Payload for first element in a generic bubble"
+                        "payload": "Internet"
+                  }],
+                }]
+            }
+        }
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+}
+
+function sendComputerMessage(sender) {
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "What computer issue are you experiencing?",
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "Computer will not turn on",
+                        "payload": "noBoot"
+                    }, {
+                        "type": "postback",
+                        "title": "Computer will not connect to internet",
+                        "payload": "noNetwork"
+                    }, {
+                        "type": "postback",
+                        "title": "Other",
+                        "payload": "other"
                   }],
                 }]
             }
@@ -141,7 +183,7 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
       if(response == "Computer"){
-        sendGenericMessage(sender);
+        sendComputerMessage(sender);
         continue;
       }
     }
