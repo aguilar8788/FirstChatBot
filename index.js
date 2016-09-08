@@ -186,6 +186,10 @@ app.post('/webhook/', function (req, res) {
         sendComputerMessage(sender);
         continue;
       }
+      else if (response == "noBoot") {
+        sendComputerMessage(sender);
+        continue;
+      }
     }
   }
   res.sendStatus(200);
