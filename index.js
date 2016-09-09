@@ -137,7 +137,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {computer.compConfirmation(sender);}, 9000);
         continue;
       }
-
+      computer.cpNoBootLogic(response);
       logic(response);
 
 
