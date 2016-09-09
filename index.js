@@ -155,6 +155,10 @@ app.post('/webhook/', function (req, res) {
 
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
+      var makeResponseArray = response.split(' ');
+      console.log(makeResponseArray);
+
+
       if(response == "Computer"){
         computer.troubleshootComputer(sender);
         continue;
