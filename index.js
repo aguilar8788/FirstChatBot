@@ -170,6 +170,11 @@ app.post('/webhook/', function (req, res) {
       var userChoice = event.postback.payload;
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
+      if(response == "cpNoBoot"){
+        setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
+        setTimeout(function() {confirmation(sender);}, 9000);
+        continue;
+      }
 
 
     }
