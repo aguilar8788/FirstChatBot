@@ -5,7 +5,10 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 var computer = require('./computerTroubleshooting');
+var internet = require('./internetTroubleshooting');
+var phone = require('./phoneTroubleshooting');
 var message = require('./GenericMessage');
+
 
 var computerWillNotBoot = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
 
@@ -155,9 +158,11 @@ app.post('/webhook/', function (req, res) {
           continue;
         }else if(makeResponseArray[j] == 'phone') {
           setTimeout(function() {message.sendTextMessage(sender, "Phone issues are the worst, lets see if we can figure out what is wrong. What kind of issue are you having?");}, 1000);
+          setTimeout(function() {phone.troubleshootPhone(sender);}, 2000);
           continue;
         }else if(makeResponseArray[j] == 'internet') {
           setTimeout(function() {message.sendTextMessage(sender, "No internet = No fun. Let's try to get you up and running again. Trouble shooting routers typically follows the same steps, so lets start from the beginning.");}, 1000);
+          
           continue;
         }
       }
