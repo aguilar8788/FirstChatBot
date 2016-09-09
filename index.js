@@ -132,10 +132,10 @@ app.post('/webhook/', function (req, res) {
       var response = event.postback.payload;
 
       if(response == "cpNoBoot"){
-        setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
+        // setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
         setTimeout(function() {computer.compConfirmation(sender);}, 9000);
         continue;
-      }  else if(userChoice == "yes") {
+      }else if(userChoice == "yes") {
          computer.computerWillNotBoot.shift()
          if(computer.computerWillNotBoot.length > 0){
            setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
