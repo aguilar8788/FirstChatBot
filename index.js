@@ -145,11 +145,18 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
-      var makeResponseArray = text.split(' ');
+      var makeResponseArray = text.split(' ').toLowerCase();
       console.log(makeResponseArray);
-      setTimeout(function() {message.sendTextMessage(sender, "Hello, What can I troubleshoot for you today?");}, 1000);
-      setTimeout(function() {computer.sendGenericMessage(sender); }, 2000);
-      continue;
+      for(var i = 0; i < makeResponseArray.length; i++) {
+        if(makeResponseArray[i] == 'computer') {
+          setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
+          continue;
+        }
+
+      }
+
+      // setTimeout(function() {computer.sendGenericMessage(sender); }, 2000);
+
 
     }else if (event.postback) {
       var userChoice = event.postback.payload;
