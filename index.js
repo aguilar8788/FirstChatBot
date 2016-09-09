@@ -162,7 +162,8 @@ app.post('/webhook/', function (req, res) {
           continue;
         }else if(makeResponseArray[j] == 'internet') {
           setTimeout(function() {message.sendTextMessage(sender, "No internet = No fun. Let's try to get you up and running again. Trouble shooting routers typically follows the same steps, so lets start from the beginning.");}, 1000);
-          setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 2000);
+          setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
+          setTimeout(function() {confirmation(sender);}, 4000);
           continue;
         }
       }
