@@ -10,7 +10,7 @@ var phone = require('./phoneTroubleshooting');
 var message = require('./GenericMessage');
 
 
-var computerWillNotBoot = ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
+
 
 
 
@@ -162,7 +162,7 @@ app.post('/webhook/', function (req, res) {
           continue;
         }else if(makeResponseArray[j] == 'internet') {
           setTimeout(function() {message.sendTextMessage(sender, "No internet = No fun. Let's try to get you up and running again. Trouble shooting routers typically follows the same steps, so lets start from the beginning.");}, 1000);
-          
+
           continue;
         }
       }
@@ -181,9 +181,9 @@ app.post('/webhook/', function (req, res) {
         computer.troubleshootComputer(sender);
         continue;
       }
-      else if (response == "noBoot") {
+      else if (response == "cpNoBoot") {
         setTimeout(function() {message.sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-        setTimeout(function() {message.sendTextMessage(sender, computerWillNotBoot[0]);}, 6000);
+        setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
 
         setTimeout(function() {confirmation(sender);}, 9000);
 
@@ -194,7 +194,7 @@ app.post('/webhook/', function (req, res) {
         if(computerWillNotBoot.length > 0){
           setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
           setTimeout(function() {
-            message.sendTextMessage(sender, computerWillNotBoot[0])
+            message.sendTextMessage(sender, computer.computerWillNotBoot[0])
             }, 6000);
           setTimeout(function() {confirmation(sender);}, 9000);
           continue;

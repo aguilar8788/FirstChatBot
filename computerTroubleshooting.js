@@ -42,7 +42,8 @@ module.exports = {
               console.log('Error: ', response.body.error)
           }
       })
-  }
+  },
+  computerWillNotBoot: ["First lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.", "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.", "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."]
 }
 
 
