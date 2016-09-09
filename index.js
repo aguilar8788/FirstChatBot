@@ -134,7 +134,7 @@ app.post('/webhook/', function (req, res) {
       if(response == "cpNoBoot" || response == "cpYes"){
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
         setTimeout(function() {computer.compConfirmation(sender);}, 9000);
-        computer.computerWillNotBoot.shift()
+        setTimeout(function() {computer.computerWillNotBoot.shift();}, 10000);
         continue;
       }
       // else if(userChoice == "yes") {
