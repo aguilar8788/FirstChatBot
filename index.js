@@ -15,46 +15,6 @@ var message = require('./GenericMessage');
 
 
 
-
-
-function confirmation(sender) {
-    let messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "Can you confirm that you completed this step?",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Yes",
-                        "payload": "yes"
-                    }, {
-                        "type": "postback",
-                        "title": "No",
-                        "payload": "no"
-                    }],
-                }]
-            }
-        }
-    }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
-
 function confirmFixed(sender) {
     let messageData = {
         "attachment": {
@@ -137,7 +97,7 @@ app.listen(app.get('port'), function() {
 })
 
 app.post('/webhook/', function (req, res) {
-
+  var logic;
   let messaging_events = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_events.length; i++) {
     let event = req.body.entry[0].messaging[i];
@@ -170,11 +130,15 @@ app.post('/webhook/', function (req, res) {
       var userChoice = event.postback.payload;
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
+
       if(response == "cpNoBoot"){
+        var logic = computer.cpNoBootLogic;
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
-        setTimeout(function() {confirmation(sender);}, 9000);
+        setTimeout(function() {computer.compConfirmation(sender);}, 9000);
         continue;
       }
+
+      logic(response);
 
 
     }
