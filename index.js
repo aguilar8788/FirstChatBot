@@ -151,6 +151,7 @@ app.post('/webhook/', function (req, res) {
       for(var j = 0; j < makeResponseArray.length; j++) {
         if(makeResponseArray[j] == 'computer') {
           setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
+          setTimeout(function() {computer.sendGenericMessage(sender); }, 2000);
           continue;
         }else if(makeResponseArray[j] == 'phone') {
           setTimeout(function() {message.sendTextMessage(sender, "Phone issues are the worst, lets see if we can figure out what is wrong. What kind of issue are you having?");}, 1000);
@@ -159,10 +160,8 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, "No internet = No fun. Let's try to get you up and running again. Trouble shooting routers typically follows the same steps, so lets start from the beginning.");}, 1000);
           continue;
         }
-
       }
 
-      // setTimeout(function() {computer.sendGenericMessage(sender); }, 2000);
 
 
     }else if (event.postback) {
