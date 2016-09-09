@@ -151,7 +151,7 @@ app.post('/webhook/', function (req, res) {
       for(var j = 0; j < makeResponseArray.length; j++) {
         if(makeResponseArray[j] == 'computer') {
           setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
-          setTimeout(function() {computer.sendGenericMessage(sender); }, 2000);
+          setTimeout(function() {computer.troubleshootComputer(sender);}, 2000);
           continue;
         }else if(makeResponseArray[j] == 'phone') {
           setTimeout(function() {message.sendTextMessage(sender, "Phone issues are the worst, lets see if we can figure out what is wrong. What kind of issue are you having?");}, 1000);
