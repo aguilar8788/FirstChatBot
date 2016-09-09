@@ -147,8 +147,8 @@ app.post('/webhook/', function (req, res) {
       let text = event.message.text;
       var makeResponseArray = text.split(' ').toLowerCase();
       console.log(makeResponseArray);
-      for(var i = 0; i < makeResponseArray.length; i++) {
-        if(makeResponseArray[i] == 'computer') {
+      for(var j = 0; j < makeResponseArray.length; j++) {
+        if(makeResponseArray[j] == 'computer') {
           setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
           continue;
         }
