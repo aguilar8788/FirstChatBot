@@ -56,6 +56,45 @@ module.exports = {
 }
 
 
+
+
+      // 
+      // if(response == "Computer"){
+      //   computer.troubleshootComputer(sender);
+      //   continue;
+      // }
+      // else if (response == "cpNoBoot") {
+      //   setTimeout(function() {message.sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
+      //   setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
+      //
+      //   setTimeout(function() {confirmation(sender);}, 9000);
+      //
+      //   continue;
+      // }
+      // else if(userChoice == "yes") {
+      //   computer.computerWillNotBoot.shift()
+      //   if(computer.computerWillNotBoot.length > 0){
+      //     setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
+      //     setTimeout(function() {
+      //       message.sendTextMessage(sender, computer.computerWillNotBoot[0])
+      //       }, 6000);
+      //     setTimeout(function() {confirmation(sender);}, 9000);
+      //     continue;
+      //   }else {
+      //     confirmFixed(sender);
+      //   }
+      // }else if(userChoice == "no") {
+      //   setTimeout(function() {message.sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
+      //   setTimeout(function() {confirmation(sender);}, 9000);
+      //   continue;
+      // }else if(userChoice == "fixNo") {
+      //   setTimeout(function() {message.sendTextMessage(sender, "Bummer, well here are some articles to look over that may help you further. If not I suggest taking the computer into a professional.");}, 2000);
+      // }
+
+
+
+
+
 //sendGenericMessage: function(sender) {
 //     let messageData = {
 //         "attachment": {
