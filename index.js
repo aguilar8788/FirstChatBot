@@ -131,12 +131,27 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
 
-      if(response == "cpNoBoot" || response == "cpYes"){
-        computer.cpNoBootLogic(response);
+      if(response == "cpNoBoot"){
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
         setTimeout(function() {computer.compConfirmation(sender);}, 9000);
         continue;
-      }
+      }  else if(userChoice == "yes") {
+         computer.computerWillNotBoot.shift()
+         if(computer.computerWillNotBoot.length > 0){
+           setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
+           setTimeout(function() {
+             message.sendTextMessage(sender, computer.computerWillNotBoot[0])
+             }, 6000);
+           setTimeout(function() {confirmation(sender);}, 9000);
+           }else {
+             confirmFixed(sender);
+           }
+         }else if(userChoice == "no") {
+           setTimeout(function() {message.sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
+           setTimeout(function() {confirmation(sender);}, 9000);
+         }else if(userinput == "fixNo") {
+           setTimeout(function() {message.sendTextMessage(sender, "Bummer, well here are some articles to look over that may help you further. If not I suggest taking the computer into a professional.");}, 2000);
+       }
 
 
 
