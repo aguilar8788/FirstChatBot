@@ -61,8 +61,8 @@ module.exports = {
                           "payload": "noNetwork"
                       }, {
                           "type": "postback",
-                          "title": "Other",
-                          "payload": "other"
+                          "title": "Virus",
+                          "payload": "virus"
                     }],
                   }]
               }
