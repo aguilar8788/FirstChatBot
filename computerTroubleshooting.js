@@ -91,7 +91,7 @@ module.exports = {
                   "When the program finishes it will display any threats that it found. It will ask to quarantine the threats. Click yes to confirm.",
                   "Finally, restart your computer to see if it eliminated your virus issue."],
   cpNoBootLogic: function(userinput) {
-    else if(userinput == "yes") {
+    if(userinput == "yes") {
      computer.computerWillNotBoot.shift()
      if(computer.computerWillNotBoot.length > 0){
        setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
