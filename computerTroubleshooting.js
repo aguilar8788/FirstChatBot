@@ -50,7 +50,7 @@ module.exports = {
                       "buttons": [{
                           "type": "postback",
                           "title": "Won't Turn On",
-                          "payload.computer": "cpNoBoot"
+                          "payload": "cpNoBoot"
                       }, {
                           "type": "postback",
                           "title": "No Internet",
