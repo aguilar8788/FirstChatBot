@@ -63,7 +63,11 @@ module.exports = {
                           "type": "postback",
                           "title": "Virus",
                           "payload": "virus"
-                    }],
+                    }, {
+                        "type": "postback",
+                        "title": "Other",
+                        "payload": "other"
+                  }],
                   }]
               }
           }
