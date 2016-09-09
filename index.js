@@ -131,7 +131,7 @@ app.post('/webhook/', function (req, res) {
       let text = JSON.stringify(event.postback);
       var response = event.postback.payload;
 
-      if(response == "cpNoBoot"){
+      if(response == "cpNoBoot" || response == "cpYes"){
         computer.cpNoBootLogic(response);
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
         setTimeout(function() {computer.compConfirmation(sender);}, 9000);
