@@ -66,11 +66,11 @@ function confirmFixed(sender) {
                     "buttons": [{
                         "type": "postback",
                         "title": "Yes",
-                        "payload": "yes"
+                        "payload": "fixYes"
                     }, {
                         "type": "postback",
                         "title": "No",
-                        "payload": "no"
+                        "payload": "fixNo"
                     }],
                 }]
             }
@@ -205,6 +205,8 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {message.sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
         setTimeout(function() {confirmation(sender);}, 9000);
         continue;
+      }else if(userChoice == "fixNo") {
+        setTimeout(function() {message.sendTextMessage(sender, "Bummer, well here are some articles to look over that may help you further. If not I suggest taking the computer into a professional.");}, 2000);
       }
     }
 
