@@ -190,8 +190,8 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else if(userChoice == "yes") {
-        computerWillNotBoot.shift()
-        if(computerWillNotBoot.length > 0){
+        computer.computerWillNotBoot.shift()
+        if(computer.computerWillNotBoot.length > 0){
           setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
           setTimeout(function() {
             message.sendTextMessage(sender, computer.computerWillNotBoot[0])
