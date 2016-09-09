@@ -22,11 +22,7 @@ module.exports = {
                           "type": "postback",
                           "title": "Virus",
                           "payload": "cpvirus"
-                    }, {
-                        "type": "postback",
-                        "title": "Other",
-                        "payload": "cpOther"
-                  }],
+                    }],
                   }]
               }
           }

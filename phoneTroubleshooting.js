@@ -18,18 +18,10 @@ module.exports = {
                           "type": "postback",
                           "title": "No Internet",
                           "payload": "phnNoNetwork"
-                      }, {
-                          "type": "postback",
-                          "title": "Virus",
-                          "payload": "phnvirus"
-                    }, {
+                      },{
                         "type": "postback",
                         "title": "Screen Broke",
                         "payload": "phnScrnBrk"
-                  },{
-                        "type": "postback",
-                        "title": "Other",
-                        "payload": "phnOther"
                   }],
                   }]
               }
