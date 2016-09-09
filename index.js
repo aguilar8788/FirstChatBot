@@ -145,7 +145,8 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
-      var makeResponseArray = text.split(' ').toLowerCase();
+      var makeTextLowerCase = text.toLowerCase();
+      var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
       for(var j = 0; j < makeResponseArray.length; j++) {
         if(makeResponseArray[j] == 'computer') {
