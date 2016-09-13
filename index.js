@@ -73,11 +73,12 @@ app.post('/webhook/', function (req, res) {
       if(response == "cpNoBoot" || response == "cpYes"){
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, computer.confirmNoBootFixed(sender));}, 3000);
-        }
+        }else{
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 3000);
         setTimeout(function() {computer.compConfirmation(sender);}, 6000);
         setTimeout(function() {computer.computerWillNotBoot.shift();}, 9000);
         continue;
+        }
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, confirmNetworkFixed(sender));}, 3000);
