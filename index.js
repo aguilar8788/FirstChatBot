@@ -47,10 +47,7 @@ app.post('/webhook/', function (req, res) {
       var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
       for(var j = 0; j < makeResponseArray.length; j++) {
-        if(makeResponseArray[j] == 'hello' || makeResponseArray[j] == 'hi') {
-          setTimeout(function() {message.sendTextMessage(sender, "Hi there, what can I help you with?");}, 1000);
-          setTimeout(function() {message.sendTextMessage(sender, "hints: 'I need help with my computer', 'My phone is not working', or 'I am not getting an internet connection'");}, 2000);
-        }else if(makeResponseArray[j] == 'computer') {
+        if(makeResponseArray[j] == 'computer') {
           setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
           setTimeout(function() {computer.troubleshootComputer(sender);}, 2000);
           continue;
