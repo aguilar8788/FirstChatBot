@@ -49,7 +49,7 @@ app.post('/webhook/', function (req, res) {
       for(var j = 0; j < makeResponseArray.length; j++) {
         if(makeResponseArray[j] == 'hello' || makeResponseArray[j] == 'hi') {
           setTimeout(function() {message.sendTextMessage(sender, "Hi there, what can I help you with?");}, 1000);
-          setTimeout(function() {message.sendTextMessage(sender, "Type hints: 'I need help with my computer', 'My phone is not working', or 'I am not getting an internet connection'");}, 1000);
+          setTimeout(function() {message.sendTextMessage(sender, "hints: 'I need help with my computer', 'My phone is not working', or 'I am not getting an internet connection'");}, 2000);
         }else if(makeResponseArray[j] == 'computer') {
           setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
           setTimeout(function() {computer.troubleshootComputer(sender);}, 2000);
@@ -72,7 +72,7 @@ app.post('/webhook/', function (req, res) {
 
       if(response == "cpNoBoot" || response == "cpYes"){
         if(computer.computerWillNotBoot.length <= 0){
-          setTimeout(function() {message.sendTextMessage(sender, confirmNoBootFixed(sender));}, 3000);
+          setTimeout(function() {message.sendTextMessage(sender, computer.confirmNoBootFixed(sender));}, 3000);
         }
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 3000);
         setTimeout(function() {computer.compConfirmation(sender);}, 6000);
