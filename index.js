@@ -53,23 +53,6 @@ function confirmFixed(sender) {
     })
 }
 
-
-// function receivedPostback(event) {
-//   var senderID = event.sender.id;
-//   var recipientID = event.recipient.id;
-//   var timeOfPostback = event.timestamp;
-//
-//   //The 'payload' param is a developer-defined field which is set in a postback
-//   //button for Structured Messages.
-//   var payload = event.postback.payload;
-//
-//   console.log("Received postback for user %d and page %d with payload '%s' " + "at %d" , senderID, recipientID, payload, timeOfPostback);
-//
-//   //When a postback is called, we'll send a message back to the sender to
-//   //let them know it was successful
-//   sendTextMessage(senderID, "Postback called");
-// }
-
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -132,41 +115,25 @@ app.post('/webhook/', function (req, res) {
       var response = event.postback.payload;
 
       if(response == "cpNoBoot" || response == "cpYes"){
-        setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
-        setTimeout(function() {computer.compConfirmation(sender);}, 9000);
-        setTimeout(function() {computer.computerWillNotBoot.shift();}, 10000);
+        setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 3000);
+        setTimeout(function() {computer.compConfirmation(sender);}, 6000);
+        setTimeout(function() {computer.computerWillNotBoot.shift();}, 9000);
         continue;
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
-        setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 6000);
-        setTimeout(function() {computer.compNoIntConfirmation(sender);}, 9000);
-        setTimeout(function() {computer.computerNoInternet.shift();}, 10000);
+        setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 3000);
+        setTimeout(function() {computer.compNoIntConfirmation(sender);}, 6000);
+        setTimeout(function() {computer.computerNoInternet.shift();}, 9000);
+        continue;
+      }else if(response == "cpVirus" || response == "cpVirusYes"){
+        setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[0]);}, 3000);
+        setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
+        setTimeout(function() {computer.computerVirus.shift();}, 9000);
         continue;
       }
-      // else if(userChoice == "yes") {
-    //      computer.computerWillNotBoot.shift()
-    //      if(computer.computerWillNotBoot.length > 0){
-    //        setTimeout(function() {message.sendTextMessage(sender, "Good, lets move on...");}, 2000);
-    //        setTimeout(function() {
-    //          message.sendTextMessage(sender, computer.computerWillNotBoot[0])
-    //          }, 6000);
-    //        setTimeout(function() {confirmation(sender);}, 9000);
-    //        }else {
-    //          confirmFixed(sender);
-    //        }
-    //      }else if(userChoice == "no") {
-    //        setTimeout(function() {message.sendTextMessage(sender, "Please finish the last task before we move on.");}, 2000);
-    //        setTimeout(function() {confirmation(sender);}, 9000);
-    //      }else if(userinput == "fixNo") {
-    //        setTimeout(function() {message.sendTextMessage(sender, "Bummer, well here are some articles to look over that may help you further. If not I suggest taking the computer into a professional.");}, 2000);
-    //    }
-    //
-    //
-    //
-    //
     }
 
   }
   res.sendStatus(200);
 })
 
-const token = "EAAZAWuK4ZATCEBAJWQS2m2LyCpyQ9ZCavdlytdQjyTc96IQZAsQnOsLaGoCudTuFjQRs3FXb3CwFT8QHa0JUN4UVoCSXBHnHCsu0Dhcu20GpaudvDwHof5kZBfyJYkkv79dIPFIeYKEG61n1wjbHTAp6vI0UN5HlJJeoG2PJcwAZDZD"
+const token = process.env.TOKEN;
