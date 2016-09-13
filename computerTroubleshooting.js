@@ -2,6 +2,117 @@
 require('dotenv').load();
 const request = require('request')
 module.exports = {
+  confirmNoBootFixed: function (sender) {
+      let messageData = {
+          "attachment": {
+              "type": "template",
+              "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                      "title": "Did this solve your issue?",
+                      "buttons": [{
+                          "type": "postback",
+                          "title": "Yes",
+                          "payload": "bootfixYes"
+                      }, {
+                          "type": "postback",
+                          "title": "No",
+                          "payload": "bootfixNo"
+                      }],
+                  }]
+              }
+          }
+      }
+      request({
+          url: 'https://graph.facebook.com/v2.6/me/messages',
+          qs: {access_token:token},
+          method: 'POST',
+          json: {
+              recipient: {id:sender},
+              message: messageData,
+          }
+      }, function(error, response, body) {
+          if (error) {
+              console.log('Error sending messages: ', error)
+          } else if (response.body.error) {
+              console.log('Error: ', response.body.error)
+          }
+      })
+  },
+  confirmNetworkFixed: function (sender) {
+      let messageData = {
+          "attachment": {
+              "type": "template",
+              "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                      "title": "Did this solve your issue?",
+                      "buttons": [{
+                          "type": "postback",
+                          "title": "Yes",
+                          "payload": "networkfixYes"
+                      }, {
+                          "type": "postback",
+                          "title": "No",
+                          "payload": "networkfixNo"
+                      }],
+                  }]
+              }
+          }
+      }
+      request({
+          url: 'https://graph.facebook.com/v2.6/me/messages',
+          qs: {access_token:token},
+          method: 'POST',
+          json: {
+              recipient: {id:sender},
+              message: messageData,
+          }
+      }, function(error, response, body) {
+          if (error) {
+              console.log('Error sending messages: ', error)
+          } else if (response.body.error) {
+              console.log('Error: ', response.body.error)
+          }
+      })
+  },
+  confirmVirusFixed: function (sender) {
+      let messageData = {
+          "attachment": {
+              "type": "template",
+              "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                      "title": "Did this solve your issue?",
+                      "buttons": [{
+                          "type": "postback",
+                          "title": "Yes",
+                          "payload": "virusfixYes"
+                      }, {
+                          "type": "postback",
+                          "title": "No",
+                          "payload": "virusfixNo"
+                      }],
+                  }]
+              }
+          }
+      }
+      request({
+          url: 'https://graph.facebook.com/v2.6/me/messages',
+          qs: {access_token:token},
+          method: 'POST',
+          json: {
+              recipient: {id:sender},
+              message: messageData,
+          }
+      }, function(error, response, body) {
+          if (error) {
+              console.log('Error sending messages: ', error)
+          } else if (response.body.error) {
+              console.log('Error: ', response.body.error)
+          }
+      })
+  },
   compConfirmation: function (sender) {
       let messageData = {
           "attachment": {
@@ -166,63 +277,3 @@ module.exports = {
                   "Finally, restart your computer to see if it eliminated your virus issue."]
 
 }
-
-
-
-
-
-      // else if (response == "cpNoBoot") {
-      //   setTimeout(function() {message.sendTextMessage(sender, "Hmmm, well lets figure this out together.");}, 3000);
-      //   setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 6000);
-      //
-      //   setTimeout(function() {confirmation(sender);}, 9000);
-      //
-      //   continue;
-      // }
-      //
-
-
-
-
-
-//sendGenericMessage: function(sender) {
-//     let messageData = {
-//         "attachment": {
-//             "type": "template",
-//             "payload": {
-//                 "template_type": "generic",
-//                 "elements": [{
-//                     "title": "Please Select From The Following",
-//                     "buttons": [{
-//                         "type": "postback",
-//                         "title": "Computer",
-//                         "payload": "Computer"
-//                     }, {
-//                         "type": "postback",
-//                         "title": "Phone",
-//                         "payload": "Phone"
-//                     }, {
-//                         "type": "postback",
-//                         "title": "Internet",
-//                         "payload": "Internet"
-//                   }],
-//                 }]
-//             }
-//         }
-//     }
-//     request({
-//         url: 'https://graph.facebook.com/v2.6/me/messages',
-//         qs: {access_token:process.env.TOKEN},
-//         method: 'POST',
-//         json: {
-//             recipient: {id:sender},
-//             message: messageData,
-//         }
-//     }, function(error, response, body) {
-//         if (error) {
-//             console.log('Error sending messages: ', error)
-//         } else if (response.body.error) {
-//             console.log('Error: ', response.body.error)
-//         }
-//     })
-// },

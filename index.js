@@ -9,50 +9,6 @@ var internet = require('./internetTroubleshooting');
 var phone = require('./phoneTroubleshooting');
 var message = require('./GenericMessage');
 
-
-
-
-
-
-
-function confirmFixed(sender) {
-    let messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "Did this solve your issue?",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Yes",
-                        "payload": "fixYes"
-                    }, {
-                        "type": "postback",
-                        "title": "No",
-                        "payload": "fixNo"
-                    }],
-                }]
-            }
-        }
-    }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
-
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -109,9 +65,6 @@ app.post('/webhook/', function (req, res) {
           continue;
         }
       }
-
-
-
     }else if (event.postback) {
       var userChoice = event.postback.payload;
       let text = JSON.stringify(event.postback);
@@ -119,22 +72,30 @@ app.post('/webhook/', function (req, res) {
 
       if(response == "cpNoBoot" || response == "cpYes"){
         if(computer.computerWillNotBoot.length <= 0){
-          setTimeout(function() {message.sendTextMessage(sender, confirmFixed(sender));}, 3000);
+          setTimeout(function() {message.sendTextMessage(sender, confirmNoBootFixed(sender));}, 3000);
         }
         setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 3000);
         setTimeout(function() {computer.compConfirmation(sender);}, 6000);
         setTimeout(function() {computer.computerWillNotBoot.shift();}, 9000);
         continue;
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
+        if(computer.computerWillNotBoot.length <= 0){
+          setTimeout(function() {message.sendTextMessage(sender, confirmNetworkFixed(sender));}, 3000);
+        }
         setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 3000);
         setTimeout(function() {computer.compNoIntConfirmation(sender);}, 6000);
         setTimeout(function() {computer.computerNoInternet.shift();}, 9000);
         continue;
       }else if(response == "cpvirus" || response == "cpVirusYes"){
+        if(computer.computerWillNotBoot.length <= 0){
+          setTimeout(function() {message.sendTextMessage(sender, confirmVirusFixed(sender));}, 3000);
+        }
         setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[0]);}, 3000);
         setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
         setTimeout(function() {computer.computerVirus.shift();}, 9000);
         continue;
+      }else if(response == "bootfixNo"){
+        setTimeout(function() {message.sendTextMessage(sender, "Well sorry this was not helpful.")})
       }
     }
 
