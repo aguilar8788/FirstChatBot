@@ -91,7 +91,7 @@ app.post('/webhook/', function (req, res) {
       var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
       for(var j = 0; j < makeResponseArray.length; j++) {
-        if(makeResponseArray == 'hello') {
+        if(makeResponseArray[j] == 'hello' || makeResponseArray[j] == 'hi') {
           setTimeout(function() {message.sendTextMessage(sender, "Hi there, what can I help you with?");}, 1000);
           setTimeout(function() {message.sendTextMessage(sender, "Type hints: 'I need help with my computer', 'My phone is not working', or 'I am not getting an internet connection'");}, 1000);
         }
