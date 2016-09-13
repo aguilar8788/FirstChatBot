@@ -82,7 +82,6 @@ app.listen(app.get('port'), function() {
 app.post('/webhook/', function (req, res) {
   var logic;
   let messaging_events = req.body.entry[0].messaging;
-  message.sendTextMessage(sender, "test")
   for (let i = 0; i < messaging_events.length; i++) {
     let event = req.body.entry[0].messaging[i];
     let sender = event.sender.id;
@@ -92,7 +91,11 @@ app.post('/webhook/', function (req, res) {
       var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
       for(var j = 0; j < makeResponseArray.length; j++) {
-        if(makeResponseArray[j] == 'computer') {
+        if(makeResponseArray == 'hello') {
+          setTimeout(function() {message.sendTextMessage(sender, "Hi there, what can I help you with?");}, 1000);
+          setTimeout(function() {message.sendTextMessage(sender, "Type hints: 'I need help with my computer', 'My phone is not working', or 'I am not getting an internet connection'");}, 1000);
+        }
+        }else if(makeResponseArray[j] == 'computer') {
           setTimeout(function() {message.sendTextMessage(sender, "What kind of computer issue are you having?");}, 1000);
           setTimeout(function() {computer.troubleshootComputer(sender);}, 2000);
           continue;
