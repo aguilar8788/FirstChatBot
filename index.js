@@ -124,7 +124,7 @@ app.post('/webhook/', function (req, res) {
         setTimeout(function() {computer.compNoIntConfirmation(sender);}, 6000);
         setTimeout(function() {computer.computerNoInternet.shift();}, 9000);
         continue;
-      }else if(response == "cpVirus" || response == "cpVirusYes"){
+      }else if(response == "cpvirus" || response == "cpVirusYes"){
         setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[0]);}, 3000);
         setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
         setTimeout(function() {computer.computerVirus.shift();}, 9000);
