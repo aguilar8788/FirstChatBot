@@ -138,7 +138,7 @@ app.post('/webhook/', function (req, res) {
         continue;
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
         setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 6000);
-        setTimeout(function() {computer.compConfirmation(sender);}, 9000);
+        setTimeout(function() {computer.compNoIntConfirmation(sender);}, 9000);
         setTimeout(function() {computer.computerNoInternet.shift();}, 10000);
         continue;
       }
