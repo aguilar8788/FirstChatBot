@@ -37,7 +37,7 @@ app.listen(app.get('port'), function() {
 
 app.post('/webhook/', function (req, res) {
   var logic;
-  var counter = 0;
+
   let messaging_events = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_events.length; i++) {
     let event = req.body.entry[0].messaging[i];
@@ -69,12 +69,12 @@ app.post('/webhook/', function (req, res) {
       var response = event.postback.payload;
 
       if(response == "cpNoBoot" || response == "cpYes"){
+        var counter = 0;
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, computer.confirmNoBootFixed(sender));}, 3000);
         }else{
           setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[counter++]);}, 3000);
           setTimeout(function() {computer.compConfirmation(sender);}, 6000);
-          setTimeout(function() {counter = counter + 1;}, 4000);
           continue;
         }
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
