@@ -89,7 +89,7 @@ app.post('/webhook/', function (req, res) {
           continue;
         }
       }else if(response == "cpvirus" || response == "cpVirusYes"){
-        if(computer.computerVirus[computer.counter] == "end"]){
+        if(computer.computerVirus[computer.counter] == "end"){
           setTimeout(function() {message.sendTextMessage(sender, confirmVirusFixed(sender));}, 3000);
           computer.counter = 0;
         }else {
