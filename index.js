@@ -71,29 +71,33 @@ app.post('/webhook/', function (req, res) {
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, computer.confirmNoBootFixed(sender));}, 3000);
         }else{
-        setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 3000);
-        setTimeout(function() {computer.compConfirmation(sender);}, 6000);
-        setTimeout(function() {computer.computerWillNotBoot.shift();}, 9000);
-        continue;
+          setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[0]);}, 3000);
+          setTimeout(function() {computer.compConfirmation(sender);}, 6000);
+          setTimeout(function() {computer.computerWillNotBoot.shift();}, 9000);
+          continue;
         }
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, confirmNetworkFixed(sender));}, 3000);
+        }else {
+          setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 3000);
+          setTimeout(function() {computer.compNoIntConfirmation(sender);}, 6000);
+          setTimeout(function() {computer.computerNoInternet.shift();}, 9000);
+          continue;
         }
-        setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 3000);
-        setTimeout(function() {computer.compNoIntConfirmation(sender);}, 6000);
-        setTimeout(function() {computer.computerNoInternet.shift();}, 9000);
-        continue;
       }else if(response == "cpvirus" || response == "cpVirusYes"){
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, confirmVirusFixed(sender));}, 3000);
+        }else {
+          setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[0]);}, 3000);
+          setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
+          setTimeout(function() {computer.computerVirus.shift();}, 9000);
+          continue;
         }
-        setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[0]);}, 3000);
-        setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
-        setTimeout(function() {computer.computerVirus.shift();}, 9000);
-        continue;
       }else if(response == "bootfixNo"){
-        setTimeout(function() {message.sendTextMessage(sender, "Well sorry this was not helpful.")})
+        setTimeout(function() {message.sendTextMessage(sender, "Well sorry this was not helpful.")}, 3000);
+        setTimeout(function() {message.sendTextMessage(sender, "Here are some resources from the internet that may help. \n http://www.pcadvisor.co.uk/how-to/laptop/how-fix-pc-that-wont-boot-3528959/ \n" +
+                                                                "http://www.howtogeek.com/173828/what-to-do-when-windows-wont-boot/ \n" + "http://www.macworld.co.uk/how-to/mac/10-steps-take-when-your-mac-wont-start-up-or-turn-on-3423817/")}, 4000);
       }
     }
 
