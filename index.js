@@ -74,7 +74,7 @@ app.post('/webhook/', function (req, res) {
         }else{
           setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[counter]);}, 3000);
           setTimeout(function() {computer.compConfirmation(sender);}, 6000);
-          counter++
+          setTimout(function() {counter++;}, 4000);
           continue;
         }
 
