@@ -2,6 +2,7 @@
 require('dotenv').load();
 const request = require('request')
 module.exports = {
+  counter: 0;
   confirmNoBootFixed: function (sender) {
       let messageData = {
           "attachment": {
