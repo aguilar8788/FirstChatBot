@@ -271,10 +271,10 @@ module.exports = {
                         "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on.", "end"],
   computerNoInternet: ["First lets perform a reboot on your computer. This seems elementary, but it solves a lot of issues.",
                        "Next, insure that your wifi on your computer is enabled. This will depend on your computer, so Google your device if you don't know how to check this.",
-                       "If all of the steps above were performed, and confirmed your issue may be a faulty wifi card, or it may be that your internet is the issue."],
+                       "If all of the steps above were performed, and confirmed your issue may be a faulty wifi card, or it may be that your internet is the issue.", "end"],
   computerVirus: ["First open a new web browser, and download a program called malwarebytes, which can be found at https://www.malwarebytes.com/antimalware/. THis is the virus software I use.",
                   "Next, run the malwarbytes program, and go through the prompts to install it.", "Once the program is installed, and it is running, click the scan button. This video is helpful if you are lost https://www.youtube.com/watch?v=RjrAceE-W4E",
                   "When the program finishes it will display any threats that it found. It will ask to quarantine the threats. Click yes to confirm.",
-                  "Finally, restart your computer to see if it eliminated your virus issue."]
+                  "Finally, restart your computer to see if it eliminated your virus issue.", "end"]
 
 }
