@@ -268,7 +268,7 @@ module.exports = {
   },
   computerWillNotBoot: ["Hmm, well first lets try the basics. Please insure that your computer has power, or if it is a laptop insure your battery is charged.",
                         "Next we should check if there are any lights on. This will indicate that we have power, which would mean there is an issue with the display.",
-                        "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on."],
+                        "Finally, I want you to hold the power button down for 30 seconds, release the button, then finally try to turn the computer back on.", "end"],
   computerNoInternet: ["First lets perform a reboot on your computer. This seems elementary, but it solves a lot of issues.",
                        "Next, insure that your wifi on your computer is enabled. This will depend on your computer, so Google your device if you don't know how to check this.",
                        "If all of the steps above were performed, and confirmed your issue may be a faulty wifi card, or it may be that your internet is the issue."],
