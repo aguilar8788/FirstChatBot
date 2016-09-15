@@ -83,7 +83,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, confirmNetworkFixed(sender));}, 3000);
           computer.counter = 0;
         }else {
-          setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[0]);}, 3000);
+          setTimeout(function() {message.sendTextMessage(sender, computer.computerNoInternet[computer.counter]);}, 3000);
           setTimeout(function() {computer.compNoIntConfirmation(sender);}, 6000);
           setTimeout(function() {computer.counter++;}, 4000);
           continue;
@@ -93,7 +93,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, confirmVirusFixed(sender));}, 3000);
           computer.counter = 0;
         }else {
-          setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[0]);}, 3000);
+          setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[computer.counter]);}, 3000);
           setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
           setTimeout(function() {computer.counter++;}, 4000);
           continue;
