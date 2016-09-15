@@ -71,7 +71,7 @@ app.post('/webhook/', function (req, res) {
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, computer.confirmNoBootFixed(sender));}, 3000);
         }else{
-          setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[counter]);}, 3000);
+          setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[computer.counter]);}, 3000);
           setTimeout(function() {computer.compConfirmation(sender);}, 6000);
           setTimeout(function() {computer.counter++;}, 4000);
           continue;
