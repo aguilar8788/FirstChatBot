@@ -69,7 +69,6 @@ app.post('/webhook/', function (req, res) {
       var response = event.postback.payload;
 
       if(response == "cpNoBoot" || response == "cpYes"){
-        counter++
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, computer.confirmNoBootFixed(sender));}, 3000);
         }else{
@@ -77,6 +76,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {computer.compConfirmation(sender);}, 6000);
           continue;
         }
+        counter++
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
         if(computer.computerWillNotBoot.length <= 0){
           setTimeout(function() {message.sendTextMessage(sender, confirmNetworkFixed(sender));}, 3000);
