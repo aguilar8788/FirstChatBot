@@ -74,7 +74,7 @@ app.post('/webhook/', function (req, res) {
         }else{
           setTimeout(function() {message.sendTextMessage(sender, computer.computerWillNotBoot[counter]);}, 3000);
           setTimeout(function() {computer.compConfirmation(sender);}, 6000);
-          setTimeout(function() {counter++;}, 9000);
+          setTimeout(function() {counter = counter + 1;}, 4000);
           continue;
         }
       }else if(response == "cpNoNetwork" || response == "cpNoIntYes"){
