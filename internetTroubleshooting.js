@@ -50,11 +50,11 @@ module.exports = {
                       "buttons": [{
                           "type": "postback",
                           "title": "Yes",
-                          "payload": "IntYes"
+                          "payload": "intYes"
                       }, {
                           "type": "postback",
                           "title": "No",
-                          "payload": "IntNo"
+                          "payload": "intNo"
                       }],
                   }]
               }
