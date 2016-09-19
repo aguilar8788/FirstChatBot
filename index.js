@@ -7,6 +7,7 @@ var computer = require('./computerTroubleshooting');
 var internet = require('./internetTroubleshooting');
 var phone = require('./phoneTroubleshooting');
 var message = require('./GenericMessage');
+var virus = require('./virus')
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -88,13 +89,13 @@ app.post('/webhook/', function (req, res) {
             continue;
           }
         }else if(response == "cpvirus" || response == "cpVirusYes"){
-          if(computer.computerVirus[computer.counter] == "end"){
-            setTimeout(function() {message.sendTextMessage(sender, confirmVirusFixed(sender));}, 3000);
-            computer.counter = 0;
+          if(virus.computerVirus[virus.counter] == "end"){
+            setTimeout(function() {message.sendTextMessage(sender, virus.confirmVirusFixed(sender));}, 3000);
+            virus.counter = 0;
           }else {
-            setTimeout(function() {message.sendTextMessage(sender, computer.computerVirus[computer.counter]);}, 3000);
-            setTimeout(function() {computer.compVirusConfirmation(sender);}, 6000);
-            setTimeout(function() {computer.counter++;}, 4000);
+            setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
+            setTimeout(function() {virus.compVirusConfirmation(sender);}, 6000);
+            setTimeout(function() {virus.counter++;}, 4000);
             continue;
           }
         }else if (response == "bootfixNo"){
