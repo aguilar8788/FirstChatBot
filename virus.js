@@ -5,7 +5,7 @@ module.exports = {
   counter: 0,
   computerVirus: ["First open a web browser of your choice, go to https://www.malwarebytes.com/antimalware/, and download the program. If you need help just ask.",
                   "Next, run the malwarbytes program, and go through the prompts to install it.", "Once the program is installed, and you have it up and running, click the scan button. This video is helpful if you are lost with this step https://www.youtube.com/watch?v=RjrAceE-W4E",
-                  "The program will scan your computer files for any threats. When it is finished it will display any threats that it found. Then it will ask if you want to quarantine the threats and reboot. Once you do this please confirm your issue was fixed"],
+                  "The program will scan your computer files for any threats. When it is finished it will display any threats that it found. Then it will ask if you want to quarantine the threats and reboot. Once you do this please confirm your issue was fixed", "end"],
 compVirusConfirmation: function (sender) {
     let messageData = {
         "attachment": {
