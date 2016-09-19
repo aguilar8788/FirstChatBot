@@ -61,8 +61,8 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
           setTimeout(function() {internet.intConfirmation(sender);}, 4000);
           continue;
-        }else if(confirmation == 'i got it' || confirmation == 'got it') {
-          // setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
+        }else if(confirmation == 'i got it') {
+          setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
           setTimeout(function() {virus.counter++;}, 4000);
           continue;
         }else if(makeResponseArray[j] == 'finished' || makeResponseArray[j] == 'done'){
