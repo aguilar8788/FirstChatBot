@@ -70,7 +70,7 @@ app.post('/webhook/', function (req, res) {
           virus.counter = 0;
         }
       }
-      else if(confirmation == 'i got it') {
+      if(confirmation == 'i got it') {
         setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
         setTimeout(function() {virus.counter++;}, 4000);
         continue;
