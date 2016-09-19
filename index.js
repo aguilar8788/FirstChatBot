@@ -60,7 +60,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
           setTimeout(function() {internet.intConfirmation(sender);}, 4000);
           continue;
-        }else if (makeResponseArray[j] == "download" || makeResponseArray[j] == "failed") {
+        }else if (makeResponseArray[j] == "failed") {
           setTimeout(function() {message.sendTextMessage(sender, "Sorry you are having issues with the download process. Can you reboot your computer and start the process over?")}, 1000);
           setTimeout(function() {virus.compVirusReboot(sender);}, 2000);
           virus.counter = 0;
