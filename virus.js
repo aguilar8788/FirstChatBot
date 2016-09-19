@@ -43,6 +43,43 @@ compVirusConfirmation: function (sender) {
         }
     })
 },
+compVirusReboot: function (sender) {
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Once your computer boots back up come back and click yes if you are ready to start again.",
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "Yes",
+                        "payload": "cpVirusYes"
+                    }, {
+                        "type": "postback",
+                        "title": "No",
+                        "payload": "cpVirusNo"
+                    }],
+                }]
+            }
+        }
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:process.env.TOKEN},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+},
 virusThreatsConfirmation: function (sender) {
     let messageData = {
         "attachment": {
