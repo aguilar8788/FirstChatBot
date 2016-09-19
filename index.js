@@ -43,6 +43,7 @@ app.post('/webhook/', function (req, res) {
     let sender = event.sender.id;
     if(event.message && event.message.text) {
       let text = event.message.text;
+      let confirmation = event.message.text;
       var makeTextLowerCase = text.toLowerCase();
       var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
@@ -60,7 +61,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
           setTimeout(function() {internet.intConfirmation(sender);}, 4000);
           continue;
-        }else if(text == 'i got' || text == 'got it') {
+        }else if(confirmation == 'i got' || confirmation == 'got it') {
           setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
           setTimeout(function() {virus.counter++;}, 4000);
           continue;
