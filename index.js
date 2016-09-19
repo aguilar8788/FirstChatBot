@@ -105,9 +105,9 @@ app.post('/webhook/', function (req, res) {
           }
         }else if (response == "cpVirusNo"){
           setTimeout(function() {message.sendTextMessage(sender, "Sorry if I am moving too fast. What issue are you having?");}, 3000);
-        }else if (response == "mbVirusYes"){
+        }else if (response == "virusfixYes"){
           setTimeout(function() {message.sendTextMessage(sender, "Great I am glad I was able to help. If you need assistance with something else just let me know. I also support issues with phones, and routers")})
-        }else if (response == "mbVirusNo") {
+        }else if (response == "virusFixNo") {
           setTimeout(function() {message.sendTextMessage(sender, "Well this doesn't sound good. I would run another scan with malware bytes, and reboot your computer. If the issue persists you may need to have a tech dig in.")})
         }else if (response == "cpRebootYes") {
          setTimeout(function() {message.sendTextMessage(sender, "Great lets get back to work")}, 2000);
