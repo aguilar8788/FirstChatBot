@@ -99,11 +99,11 @@ app.post('/webhook/', function (req, res) {
             continue;
           }
         }else if (response == "cpVirusNo"){
-
-          }else if (response == "mbVirusYes"){
-
+          setTimeout(function() {message.sendTextMessage(sender, "Sorry if I am moving too fast. What issue are you having?");}, 3000);
+        }else if (response == "mbVirusYes"){
+          setTimeout(function() {message.sendTextMessage(sender, "Great I am glad I was able to help. If you need assistance with something else just let me know. I also support issues with phones, and routers")})
         }else if (response == "mbVirusNo") {
-
+          setTimeout(function() {message.sendTextMessage(sender, "Well this doesn't sound good. I would run another scan with malware bytes, and reboot your computer. If the issue persists you may need to have a tech dig in.")})
         }
       }
     }
