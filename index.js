@@ -60,7 +60,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
           setTimeout(function() {internet.intConfirmation(sender);}, 4000);
           continue;
-        }else if(makeResponseArray[j] == 'got' || makeResponseArray[j] == 'got it') {
+        }else if(makeResponseArray[j] == 'i got' || makeResponseArray[j] == 'got it') {
           setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
           setTimeout(function() {virus.counter++;}, 4000);
           continue;
