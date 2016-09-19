@@ -3,8 +3,8 @@ require('dotenv').load();
 const request = require('request')
 module.exports = {
   counter: 0,
-  computerVirus: ["First open a new web browser, and download the program called malwarebytes, which can be found at https://www.malwarebytes.com/antimalware/. Please respond with 'I got it' when you are finished. If you need help just ask.",
-                  "Next, run the malwarbytes program, and go through the prompts to install it. I have a video that can help with this if you need it. Just let me know when the program finishes. Or ask for the video if you need it.", "Once the program is installed, and it is running, click the scan button. This video is helpful if you are lost with this step https://www.youtube.com/watch?v=RjrAceE-W4E",
+  computerVirus: ["First open a new web browser, and download the program called malwarebytes, which can be found at https://www.malwarebytes.com/antimalware/. If you need help just ask.",
+                  "Next, run the malwarbytes program, and go through the prompts to install it. I have a video that can help with this if you need it.", "Once the program is installed, and it is running, click the scan button. This video is helpful if you are lost with this step https://www.youtube.com/watch?v=RjrAceE-W4E",
                   "The program will scan your computer files for any threats. When it is finished it will display any threats that it found. Then it will ask if you want to quarantine the threats. Click yes to confirm.", "end"],
 compVirusConfirmation: function (sender) {
     let messageData = {
