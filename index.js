@@ -60,10 +60,9 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
           setTimeout(function() {internet.intConfirmation(sender);}, 4000);
           continue;
+        }else if (makeResponseArray[j] == "download" || makeResponseArray[j] == "failed") {
+          setTimeout(function() {message.sendTextMessage(sender, "Sorry you are having issues with the download process. Can you reboot your computer and start the process over?")})
         }
-      }
-      if (text == "I cant download the program" || text == "The download failed") {
-        setTimeout(function() {message.sendTextMessage(sender, "Sorry you are having issues with the download process. Can you reboot your computer and start the process over?")})
       }
       }else if (event.postback) {
         var userChoice = event.postback.payload;
