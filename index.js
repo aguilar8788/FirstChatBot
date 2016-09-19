@@ -69,6 +69,9 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
           setTimeout(function() {virus.counter++;}, 4000);
           continue;
+        }else if(makeResponseArray[j] == 'end') {
+          setTimeout(function() {message.sendTextMessage(sender, virus.confirmVirusFixed(sender));}, 3000);
+          virus.counter = 0;
         }
       }
       }else if (event.postback) {
