@@ -62,6 +62,9 @@ app.post('/webhook/', function (req, res) {
           continue;
         }
       }
+      if (text == "I cant download the program" || text == "The download failed") {
+        setTimeout(function() {message.sendTextMessage(sender, "Sorry you are having issues with the download process. Can you reboot your computer and start the process over?")})
+      }
       }else if (event.postback) {
         var userChoice = event.postback.payload;
         let text = JSON.stringify(event.postback);
