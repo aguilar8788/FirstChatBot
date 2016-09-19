@@ -108,6 +108,12 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, "Great I am glad I was able to help. If you need assistance with something else just let me know. I also support issues with phones, and routers")})
         }else if (response == "mbVirusNo") {
           setTimeout(function() {message.sendTextMessage(sender, "Well this doesn't sound good. I would run another scan with malware bytes, and reboot your computer. If the issue persists you may need to have a tech dig in.")})
+        }else if (response == "cpRebootYes") {
+         setTimeout(function() {message.sendTextMessage(sender, "Great lets get back to work")}, 2000);
+         setTimeout(function() {message.sendTextMessage(sender, "Open a web browser of your choice, go to https://www.malwarebytes.com/antimalware/, and download the program. If you need help just ask");}, 3000);
+         setTimeout(function() {virus.compVirusConfirmation(sender);}, 6000);
+         setTimeout(function() {virus.counter++;}, 4000);
+         continue;
         }
       }
     }

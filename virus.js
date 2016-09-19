@@ -54,11 +54,11 @@ compVirusReboot: function (sender) {
                     "buttons": [{
                         "type": "postback",
                         "title": "Yes",
-                        "payload": "cpVirusYes"
+                        "payload": "cpRebootYes"
                     }, {
                         "type": "postback",
                         "title": "No",
-                        "payload": "cpVirusNo"
+                        "payload": "cpRebootNo"
                     }],
                 }]
             }
