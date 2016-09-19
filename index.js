@@ -60,10 +60,6 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, internet.internetTroubleshooting[0]);}, 3000);
           setTimeout(function() {internet.intConfirmation(sender);}, 4000);
           continue;
-        }else if(makeTextLowerCase == 'i got it') {
-          setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
-          setTimeout(function() {virus.counter++;}, 4000);
-          continue;
         }else if(makeResponseArray[j] == 'finished' || makeResponseArray[j] == 'done'){
           setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
           // setTimeout(function() {virus.compVirusConfirmation(sender);}, 6000);
@@ -73,6 +69,11 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, virus.confirmVirusFixed(sender));}, 3000);
           virus.counter = 0;
         }
+      }
+      else if(confirmation == 'i got it') {
+        setTimeout(function() {message.sendTextMessage(sender, virus.computerVirus[virus.counter]);}, 3000);
+        setTimeout(function() {virus.counter++;}, 4000);
+        continue;
       }
       }else if (event.postback) {
         var userChoice = event.postback.payload;
