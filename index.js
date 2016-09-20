@@ -37,10 +37,6 @@ app.listen(app.get('port'), function() {
 })
 
 app.post('/webhook/', function (req, res) {
-  var info = http.request("http://graph.facebook.com/v2.6/me?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + process.env.TOKEN, function(data) {
-    return data.ClientRequest._events.response;
-  })
-  console.log(info)
   var logic;
   let messaging_events = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_events.length; i++) {
