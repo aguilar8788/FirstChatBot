@@ -28,7 +28,7 @@ module.exports = {
       method: 'POST',
       json: {
         recipient: {id:sender},
-        message: "messaging": [
+        message:[
           {
             "sender": {
               "id": "USER_ID"
