@@ -98,7 +98,7 @@ app.post('/webhook/', function (req, res) {
             setTimeout(function() {computer.counter++;}, 4000);
             continue;
           }
-        }else if(response == "cpvirus" || response == "cpVirusYes" || response == "yes"){
+        }else if(response == "cpvirus" || response == "cpVirusYes"){
             var last = virus.computerVirus.length;
           if(virus.computerVirus[virus.counter] == "end"){
             setTimeout(function() {message.sendTextMessage(sender, virus.confirmVirusFixed(sender));}, 3000);
@@ -109,7 +109,7 @@ app.post('/webhook/', function (req, res) {
             setTimeout(function() {virus.counter++;}, 4000);
             continue;
           }
-        }else if (response == "cpVirusNo" || response == "no"){
+        }else if (response == "cpVirusNo"){
           setTimeout(function() {message.sendTextMessage(sender, "Sorry if I am moving too fast. What issue are you having?");}, 3000);
         }else if (response == "virusfixYes"){
           setTimeout(function() {message.sendTextMessage(sender, "Great I am glad I was able to help. If you need assistance with something else just let me know. I also support issues with phones, and routers.")})
