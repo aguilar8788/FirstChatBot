@@ -69,7 +69,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, "Here is our contact info")}, 3000);
           setTimeout(function() {message.sendTextMessage(sender, "  Name: Peter Aguilar Jr\n Github:/aguilar8788 \n LinkedIn:/in/peteraguilar\n Personal: peteraguilarjr.com/")}, 4000);
         }else if(makeResponseArray[j] == "video") {
-          message.sendTextMessage(sender, "https://www.youtube.com/watch?v=-KBeaAn7hHI");
+          message.sendPicture(sender, "https://www.youtube.com/watch?v=-KBeaAn7hHI");
         }
       }
       }else if (event.postback) {
