@@ -21,7 +21,6 @@ module.exports = {
     })
   },
   sendPicture: function(sender) {
-    let messageData = { text:text };
     request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
       qs: {access_token:process.env.TOKEN},
