@@ -29,9 +29,9 @@ module.exports = {
         recipient: {id:sender},
         message: {
           "attachment": {
-            "type": "url",
+            "type": "video",
             "payload": {
-              "url": "https://www.youtube.com/watch?v=ctAVC2JwEwI"
+              "url": "https://www.youtube.com/watch?v=XX58EGMyo-g"
             }
           }
         }
