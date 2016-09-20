@@ -21,50 +21,41 @@ module.exports = {
     })
   },
   sendPicture: function(sender) {
-    let messageData = {
-  "object": "page",
-  "entry": [
-    {
-      "id": "PAGE_ID",
-      "time": 1472672934319,
-      "messaging": [
-        {
-          "sender": {
-            "id": "USER_ID"
-          },
-          "recipient": {
-            "id": "PAGE_ID"
-          },
-          "timestamp": 1472672934259,
-          "message": {
-            "mid": "mid.1472672934017:db566db5104b5b5c08",
-            "seq": 297,
-            "attachments": [
-              {
-                "title": "Facebook HQ",
-                "url": "https://www.facebook.com/l.php?u=https%....5-7Ocxrmg",
-                "type": "location",
-                "payload": {
-                  "coordinates": {
-                    "lat": 37.483872693672,
-                    "long": -122.14900441942
-                  }
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ]
-}
+
     request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
       qs: {access_token:process.env.TOKEN},
       method: 'POST',
       json: {
         recipient: {id:sender},
-        message: messageData
+        message: "messaging": [
+          {
+            "sender": {
+              "id": "USER_ID"
+            },
+            "recipient": {
+              "id": "PAGE_ID"
+            },
+            "timestamp": 1472672934259,
+            "message": {
+              "mid": "mid.1472672934017:db566db5104b5b5c08",
+              "seq": 297,
+              "attachments": [
+                {
+                  "title": "Facebook HQ",
+                  "url": "https://www.facebook.com/l.php?u=https%....5-7Ocxrmg",
+                  "type": "location",
+                  "payload": {
+                    "coordinates": {
+                      "lat": 37.483872693672,
+                      "long": -122.14900441942
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     }, function(error, response, body) {
       if(error) {
