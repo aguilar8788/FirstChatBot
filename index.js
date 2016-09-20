@@ -38,7 +38,7 @@ app.listen(app.get('port'), function() {
 
 app.post('/webhook/', function (req, res) {
   var info = http.request("http://graph.facebook.com/v2.6/me?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + process.env.TOKEN, function(data) {
-    return data;
+    return data.response;
   })
   console.log(info)
   var logic;
