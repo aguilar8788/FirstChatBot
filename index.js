@@ -64,7 +64,7 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, "Sorry you are having issues with the download process. Can you reboot your computer and start the process over?")}, 1000);
           setTimeout(function() {virus.compVirusReboot(sender);}, 2000);
           virus.counter = 0;
-        }else if (makeResponseArray[j] == "Thank") {
+        }else if (makeResponseArray[j] == "thank") {
           setTimeout(function() {message.sendTextMessage(sender, "Thank you for checking me out. Enjoy the rest of your day.")}, 2000);
         }
       }
