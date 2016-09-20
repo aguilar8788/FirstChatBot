@@ -27,14 +27,8 @@ module.exports = {
       method: 'POST',
       json: {
         recipient: {id:sender},
-        message: {
-          "attachment": {
-            "type": "video",
-            "payload": {
-              "url": "https://www.youtube.com/watch?v=XX58EGMyo-g"
-            }
-          }
-        }
+        message:"https://www.youtube.com/watch?v=XX58EGMyo-g"
+
       }
     }, function(error, response, body) {
       if(error) {
