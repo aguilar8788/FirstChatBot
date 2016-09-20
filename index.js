@@ -47,9 +47,6 @@ app.post('/webhook/', function (req, res) {
       var makeTextLowerCase = text.toLowerCase();
       var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
-      if(text == "thank you") {
-        message.sendTextMessage(function() {sender, "You are welcome!"}, 1000);
-      }
       for(var j = 0; j < makeResponseArray.length; j++) {
         if(makeResponseArray[j] == 'computer' || makeResponseArray[j] == 'computer?' || makeResponseArray[j] == 'computer!') {
           setTimeout(function() {message.sendTextMessage(sender, "Hi there, What kind of computer issue are you having?");}, 1000);
