@@ -29,9 +29,9 @@ module.exports = {
         recipient: {id:sender},
         message: {
           "attachment": {
-            "type": "video",
+            "type": "image",
             "payload": {
-              "url": "https://www.youtube.com/watch?v=-KBeaAn7hHI"
+              "url": "http://pisces.bbystatic.com//BestBuy_US/store/ee/2015/com/pm/nav_desktops_1115.jpg;maxHeight=288;maxWidth=520"
             }
           }
         }
