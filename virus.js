@@ -4,8 +4,8 @@ const request = require('request')
 module.exports = {
   counter: 0,
   computerVirus: ["First open a web browser of your choice, go to https://www.malwarebytes.com/antimalware/, and download the program.",
-                  "Next, run the malwarbytes program, and go through the prompts to install it. Refer to this video if you need help https://www.youtube.com/watch?v=-KBeaAn7hHI", "Once the program is installed, and you have it up and running, click the scan button. This video is helpful if you are lost with this step https://www.youtube.com/watch?v=RjrAceE-W4E",
-                  "The program will scan your computer files for any threats. When it is finished it will display any threats that it found. Then it will ask if you want to quarantine the threats and reboot. Once you do this please confirm your issue was fixed", "end"],
+                  "Next, run the malwarbytes program, and go through the prompts to install it. Refer to this video if you need help: https://www.youtube.com/watch?v=-KBeaAn7hHI", "Once the program is installed, and you have it up and running, click the scan button. This video is helpful if you are lost with this step https://www.youtube.com/watch?v=RjrAceE-W4E",
+                  "The program will scan your computer files for any threats. When it is finished it will display any threats that it found. Then it will ask if you want to quarantine the threats and reboot. Once you do this please confirm your issue was fixed.", "end"],
 compVirusConfirmation: function (sender) {
     let messageData = {
         "attachment": {
@@ -50,7 +50,7 @@ compVirusReboot: function (sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Once your computer boots back up come back and click yes if you are ready to start again.",
+                    "title": "Once your computer boots back up comfirm to move on.",
                     "buttons": [{
                         "type": "postback",
                         "title": "Yes",

@@ -47,7 +47,7 @@ app.post('/webhook/', function (req, res) {
       var makeResponseArray = makeTextLowerCase.split(' ')
       console.log(makeResponseArray);
       for(var j = 0; j < makeResponseArray.length; j++) {
-        if(makeResponseArray[j] == 'computer') {
+        if(makeResponseArray[j] == 'computer' || makeResponseArray[j] == 'computer?' || makeResponseArray[j] == 'computer!') {
           setTimeout(function() {message.sendTextMessage(sender, "Hi there, What kind of computer issue are you having?");}, 1000);
           setTimeout(function() {computer.troubleshootComputer(sender);}, 2000);
           continue;
@@ -64,6 +64,8 @@ app.post('/webhook/', function (req, res) {
           setTimeout(function() {message.sendTextMessage(sender, "Sorry you are having issues with the download process. Can you reboot your computer and start the process over?")}, 1000);
           setTimeout(function() {virus.compVirusReboot(sender);}, 2000);
           virus.counter = 0;
+        }else if (makeResponseArray[j] == "Thank") {
+          setTimeout(function() {message.sendTextMessage(sender, "Thank you for checking me out. Enjoy the rest of your day.")}, 2000);
         }
       }
       }else if (event.postback) {
@@ -106,12 +108,12 @@ app.post('/webhook/', function (req, res) {
         }else if (response == "cpVirusNo"){
           setTimeout(function() {message.sendTextMessage(sender, "Sorry if I am moving too fast. What issue are you having?");}, 3000);
         }else if (response == "virusfixYes"){
-          setTimeout(function() {message.sendTextMessage(sender, "Great I am glad I was able to help. If you need assistance with something else just let me know. I also support issues with phones, and routers")})
+          setTimeout(function() {message.sendTextMessage(sender, "Great I am glad I was able to help. If you need assistance with something else just let me know. I also support issues with phones, and routers.")})
         }else if (response == "virusfixNo") {
-          setTimeout(function() {message.sendTextMessage(sender, "Well this doesn't sound good. I would run another scan with malware bytes, and reboot your computer. If the issue persists you may need to have a tech dig in.")})
+          setTimeout(function() {message.sendTextMessage(sender, "Well this doesn't sound good. I would run another scan with malware bytes, and reboot your computer. If the issue persists you may need to have a tech dig in.")}, 1000);
         }else if (response == "cpRebootYes") {
          setTimeout(function() {message.sendTextMessage(sender, "Great lets get back to work")}, 2000);
-         setTimeout(function() {message.sendTextMessage(sender, "Open a web browser of your choice, go to https://www.malwarebytes.com/antimalware/, and download the program. If you need help just ask");}, 3000);
+         setTimeout(function() {message.sendTextMessage(sender, "Open a web browser of your choice, go to https://www.malwarebytes.com/antimalware/, and download the program.");}, 3000);
          setTimeout(function() {virus.compVirusConfirmation(sender);}, 6000);
          setTimeout(function() {virus.counter++;}, 4000);
          continue;
