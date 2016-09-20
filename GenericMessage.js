@@ -20,7 +20,7 @@ module.exports = {
       }
     })
   },
-  sendPicture: function(sender, url) {
+  sendPicture: function(sender) {
     let messageData = { text:text };
     request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -32,7 +32,7 @@ module.exports = {
           "attachment": {
             "type": "video",
             "payload": {
-              "url": url
+              "url": "https://www.youtube.com/watch?v=-KBeaAn7hHI"
             }
           }
         }
