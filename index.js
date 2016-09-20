@@ -8,6 +8,7 @@ var internet = require('./internetTroubleshooting');
 var phone = require('./phoneTroubleshooting');
 var message = require('./GenericMessage');
 var virus = require('./virus')
+var http = require('http');
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -36,6 +37,9 @@ app.listen(app.get('port'), function() {
 })
 
 app.post('/webhook/', function (req, res) {
+  var info = http.request("https://graph.facebook.com/v2.6/<USER_ID>?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=PAGE_ACCESS_TOKEN").then(function(data) {
+    console.log(data);
+  })
   var logic;
   let messaging_events = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_events.length; i++) {
