@@ -68,7 +68,7 @@ app.post('/webhook/', function (req, res) {
         }else if (makeResponseArray[j] == "thank") {
           setTimeout(function() {message.sendTextMessage(sender, "Thank you for checking me out. Enjoy the rest of your day.")}, 2000);
           setTimeout(function() {message.sendTextMessage(sender, "Here is our contact info")}, 3000);
-          setTimeout(function() {message.sendTextMessage(sender, "  Name: Peter Aguilar Jr\n Github:/aguilar8788 \n LinkedIn:/in/peteraguilar\n Personal: peteraguilarjr.com/")}, 4000);
+          setTimeout(function() {message.sendTextMessage(sender, "\nName: Peter Aguilar Jr\n Email: peter.aguilar2287@gmail.com\n Github:/aguilar8788 \n LinkedIn:/in/peteraguilar\n Personal: peteraguilarjr.com/")}, 4000);
         }
       }
       }else if (event.postback) {
